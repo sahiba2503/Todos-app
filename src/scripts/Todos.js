@@ -1,4 +1,6 @@
 import { } from "./module1.js";
+import { createNode } from "./common.js";
+
 // import{handleSearchListItem,searchInput,searchBtn,clearBtn,todoListData,progressListData,completedListData,signListData,delayListData,delayList,todoList,progressList,completedList,signList} from "./module11.js";
 //this code is responsible for handling the task how task is moving from planing to completion 
 let taskInput = document.querySelector("#taskInput");
@@ -202,24 +204,36 @@ function createTodoList() {
  var todoL = todoListData.length;
 totalTodo.children[0].innerHTML = todoL;
 //end
-  for (let i = 0; i < todoListData.length; i++) {
+  // for (let i = 0; i < todoListData.length; i++) {
+  //   todoList.insertAdjacentHTML(
+  //     "beforeend",
+  //     `<li class="todoListItem">
+  //       <div class="todoListDetail">
+  //       <div class="todoTask">${todoListData[i].title}</div>
+  //       <div class="todoCreateDate">Created: ${todoListData[i].createDate}</div>
+  //        <div class="todoUpdateDate">Update: ${todoListData[i].update}</div>
+  //       <div class="todoDueDate">Due: ${todoListData[i].due}</div>
+  //       </div>
+  //       <div class="todoiconContainer">
+  //         <div class="todoEditButton"><img src="./public/images/update.svg" alt="update"></div>
+  //       <div class="todoBacklog"><img src="./public/images/moveBack.svg" alt="update"></div>
+  //       <div class="todoMoveButton"><img src="./public/images/move.svg" alt="update"></div>
+  //       <div class="todoDeleteButton"><img src="./public/images/delete.svg" alt="update"></div>
+  //       </div>
+  //       </li>
+  //               `
+  //   );
+  // }
+   for (let i = 0; i < todoListData.length; i++) {
     todoList.insertAdjacentHTML(
       "beforeend",
-      `<li class="todoListItem">
-        <div class="todoListDetail">
-        <div class="todoTask">${todoListData[i].title}</div>
-        <div class="todoCreateDate">Created: ${todoListData[i].createDate}</div>
-         <div class="todoUpdateDate">Update: ${todoListData[i].update}</div>
-        <div class="todoDueDate">Due: ${todoListData[i].due}</div>
-        </div>
-        <div class="todoiconContainer">
-          <div class="todoEditButton"><i class="fa-solid fa-pencil"></i></div>
-        <div class="todoBacklog"><i class="fa-solid fa-arrow-left-long"></i></div>
-        <div class="todoMoveButton"><i class="fa-solid fa-arrow-right-long"></i></div>
-        <div class="todoDeleteButton"><i class="fa-regular fa-trash-can"></i></div>
-        </div>
-        </li>
-                `
+      createNode({
+        title:todoListData[i].title,
+        createDate:todoListData[i].createDate,
+        update:todoListData[i].update,
+        due:todoListData[i].due
+      })
+      
     );
   }
   let todoListItem = document.querySelectorAll(".todoListItem");
@@ -238,7 +252,8 @@ totalTodo.children[0].innerHTML = todoL;
       //move todo task  to backlog 
     todoListItem[i]
       .querySelector(".todoBacklog").addEventListener("click", todobacklogList);
-      function todobacklogList(){
+      function todobacklogList()
+      {
        var todoBacklogListTitle = todoListData[i].title;
       var todoBacklogListCreate = todoListData[i].createDate;
       var todoBacklogListDue = todoListData[i].due;
@@ -325,10 +340,10 @@ progressHeading.children[0].innerHTML = progressL ;
         <div class="progressDueDate">Due: ${progressListData[i].due}</div>
         </div>
         <div class="progressIconContainer">
-         <div class="progressEditButton"><i class="fa-solid fa-pencil"></i></div>
-        <div class="progressMoveInTodo"><i class="fa-solid fa-arrow-left-long"></i></div>
-        <div class="progressMoveButton"><i class="fa-solid fa-arrow-right-long"></i></div>
-        <div class="progressDeleteButton"><i class="fa-regular fa-trash-can"></i></div>
+         <div class="progressEditButton"> <img src="./public/images/update.svg" alt="update"></div>
+        <div class="progressMoveInTodo"><img src="./public/images/moveBack.svg" alt="update"></div>
+        <div class="progressMoveButton"><img src="./public/images/move.svg" alt="update"></div>
+        <div class="progressDeleteButton"><img src="./public/images/delete.svg" alt="update"></div>
         </div>
         </li>
         `
@@ -446,10 +461,10 @@ doneHeading.children[0].innerHTML = doneL;
         <div class="completedDueDate">Completed: ${completedListData[i].compledDate}</div>
         </div>
         <div class="completedIconContainer">
-         <div class="completedEditButton"><i class="fa-solid fa-pencil"></i></div>
-          <div class="comeMoveInProg"><i class="fa-solid fa-arrow-left-long"></i></div>
-        <div class="completedMoveButton"><i class="fa-solid fa-arrow-right"></i></div>
-        <div class="completedDeleteButton"><i class="fa-regular fa-trash-can"></i></div>
+         <div class="completedEditButton"> <img src="./public/images/update.svg" alt="update"></div>
+          <div class="comeMoveInProg"><img src="./public/images/moveBack.svg" alt="update"></div>
+        <div class="completedMoveButton"><img src="./public/images/move.svg" alt="update"></div>
+        <div class="completedDeleteButton"><img src="./public/images/delete.svg" alt="update"></div>
         </div>
         </li>
         `
@@ -568,8 +583,8 @@ signHeading.children[0].innerHTML = signL;
         <div class="signCompletedDate">Completed: ${signListData[i].compledDate}</div>
         </div>
         <div class="signIconContainer">
-         <div class="signMoveInCompleted"><i class="fa-solid fa-arrow-left-long"></i></div>
-         <div class="signDeleteButton"><i class="fa-regular fa-trash-can"></i></div>
+         <div class="signMoveInCompleted"><img src="./public/images/moveBack.svg" alt="update"></div>
+         <div class="signDeleteButton"><img src="./public/images/delete.svg" alt="update"></div>
         </div>
         </li>
         `
@@ -640,9 +655,9 @@ backlogHeading.children[0].innerHTML = backlogL;
           <div class="backlogdueDate">Due: ${delayListData[i].due}</div>
             </div>  
         <div class="backlogIconContainer"> 
-          <div class="backlogEditButton"><i class="fa-solid fa-pencil"></i></div> 
-        <div class="BacklogMoveTodo"><i class="fa-solid fa-arrow-right"></i></div>    
-        <div class="delayDeleteButton"> <i class="fa-regular fa-trash-can"></i></div>        
+          <div class="backlogEditButton"> <img src="./public/images/update.svg" alt="update"></div> 
+        <div class="BacklogMoveTodo"><img src="./public/images/move.svg" alt="update"></div>    
+        <div class="delayDeleteButton"> <img src="./public/images/delete.svg" alt="update"></div>        
         </div>
         </li>
         `

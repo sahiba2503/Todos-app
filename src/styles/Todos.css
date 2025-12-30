@@ -14,7 +14,7 @@ html{
 }
 
 #headingTaskContainer {
-     width: 100%;
+    width: 100%;
     display: flex;
     gap: 24px;
     flex-direction: column;
@@ -25,15 +25,17 @@ html{
 #allTaskBtn {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-}
+    flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+  }
 
 #allTaskBtn #backBtn,
 #todoBtn,
 #proBtn,
 #donBtn,
 #expiryBtn {
-    padding: 5px 7px;
+    padding: 5px;
     border-radius: 9px;
     color: #FFFF;
     background-color: #7358e1;
@@ -130,7 +132,7 @@ input::placeholder{
     background-color: #FFFF;
    
 }
-#searchContainer #searchIcon i {
+#searchContainer #searchIcon img{
     color: black;
     background-color: #FFFF;
    
@@ -145,30 +147,30 @@ input::placeholder{
     width: 23%;
     padding-top: 3px;
 }
-#searchClearIcons #clearBtn {
+#searchClearIcons #clearBtn img {
     background-color: #FFFF;
-    font-size: 1rem;
+    font-size: 2rem;
     height: 50%;
    
 }
 #searchClearIcons #searchBtn {
     background-color: #FFFF;
-    font-size: 1rem;
+    font-size: 1.5rem;
     height: 50%;
     
 }
-#searchClearIcons #clearBtn i {
+#searchClearIcons #clearBtn img {
      height: 100%;
     text-align: center;
     background-color: #FFFF;
     color: black;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 #searchClearIcons #searchBtn i {
+    color:rgb(154, 150, 150);
     height: 50%;
     background-color: #FFFF;
-    color: black;
-    font-size: 1.5rem;
+     font-size: 1.5rem;
 }
 .containertwoicons {
     width: 100%;
@@ -275,11 +277,11 @@ li {
     padding: 1.7rem;
     width: 100%;
 }
-.todoiconContainer i,
-.progressIconContainer i,
-.completedIconContainer i,
-.signIconContainer i,
-.backlogIconContainer i {
+.todoiconContainer img,
+.progressIconContainer img,
+.completedIconContainer img,
+.signIconContainer img,
+.backlogIconContainer img{
     display: none;
 }
 .todoListDetail {
@@ -339,9 +341,7 @@ li {
     width: 100%;
     display: flex;
     justify-content: right;
-    background-color: #F8F9FA;
-
-   
+    background-color: #F8F9FA;  
 
 }
 
@@ -378,18 +378,24 @@ li i:hover {
      margin-right: 1.3rem;
     color: #5D3FD3;
 }
+#searchContainer #searchClearIcons img {
+    display: none;
+}
 #searchContainer #searchClearIcons i {
     display: none;
+}
+#searchContainer:hover #searchClearIcons img {
+    display: flex;
 }
 #searchContainer:hover #searchClearIcons i {
     display: flex;
 }
 
-.todoListItem:hover .todoiconContainer i,
-.progressListItem:hover .progressIconContainer i,
-.completedListItem:hover .completedIconContainer i,
-.signListItem:hover .signIconContainer i,
-.delayListItem:hover .backlogIconContainer i {
+.todoListItem:hover .todoiconContainer img,
+.progressListItem:hover .progressIconContainer img,
+.completedListItem:hover .completedIconContainer img,
+.signListItem:hover .signIconContainer img,
+.delayListItem:hover .backlogIconContainer img {
     display: flex;
 }
 ol {
@@ -499,23 +505,22 @@ ol li{
         #InputTaskContainer input::placeholder{
         font-size: 1rem;
     }
-    #searchContainer:hover #searchClearIcons i {
+    #searchContainer:hover #searchClearIcons img {
     display: flex;
     font-size: 15px;
 }
    }
 @media screen and (max-width : 480px) {
     body {
-        padding: 0;
+         padding: 0;
         margin: 0;
-    }
+            }
      ol li:hover  ol li i{
         display: flex;
     }
     #headingTaskContainer {
-        width: 100%;
-        height: 411px;
-        /* chenge */
+         width: 100%;
+        height: 450px;
         padding: 0;
         justify-content: space-between;
     }
@@ -555,10 +560,9 @@ ol li{
     #sliderLeftBtn {
         display: none;
     }
-    #allTaskBtn {
-        display: block;
+    #allTaskBtn {  
+        width: 100%;      
         display: flex;
-        justify-content: space-around;
         margin-bottom: 1rem;
         font-size: 1rem;
     }
@@ -610,6 +614,7 @@ font-size: 1.5rem;
 background-color: #FFFF;
 color:#5D3FD3;
 }
+
   
     
 }
