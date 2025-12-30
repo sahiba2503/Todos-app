@@ -1,5 +1,6 @@
 import { } from "./module1.js";
-import { createNode } from "./common.js";
+import { createTodoTask, createProgressTask, createCompletedTask, createSignTasks, createBacklogTask } from "./createTask.js";
+
 
 // import{handleSearchListItem,searchInput,searchBtn,clearBtn,todoListData,progressListData,completedListData,signListData,delayListData,delayList,todoList,progressList,completedList,signList} from "./module11.js";
 //this code is responsible for handling the task how task is moving from planing to completion 
@@ -30,42 +31,41 @@ window.addEventListener("DOMContentLoaded", function () {
   var storedTodo = localStorage.getItem("TODO");
   if (storedTodo !== null) {
     todoListData = JSON.parse(storedTodo);
-     }
- //show all progress tasks after reopen and refresh the browser.
+  }
+  //show all progress tasks after reopen and refresh the browser.
   var storedProgress = localStorage.getItem("PROGRESS");
   if (storedProgress !== null) {
     progressListData = JSON.parse(storedProgress);
-        }
+  }
   //show all completed tasks after reopen and refresh the browser.
   var storedCompletd = localStorage.getItem("COMPLETED");
   if (storedCompletd !== null) {
     completedListData = JSON.parse(storedCompletd);
-     }
+  }
   //show all sign tasks after reopen and refresh the browser.
   var storedSign = localStorage.getItem("SIGN");
   if (storedSign !== null) {
     signListData = JSON.parse(storedSign);
-      }
-//show all backlog tasks after reopen and refresh the browser.
+  }
+  //show all backlog tasks after reopen and refresh the browser.
   var storedBacklog = localStorage.getItem("BACKLOG");
   if (storedBacklog !== null) {
     delayListData = JSON.parse(storedBacklog);
-      }
+  }
   createAllTask();
 });
 
-function createAllTask(){
-   createTodoList();
-    createProgressList();
-     createCompletedList();
-      createSignList();
-        createDelayList();            
+function createAllTask() {
+  createTodoList();
+  createProgressList();
+  createCompletedList();
+  createSignList();
+  createDelayList();
 
 }
 //create a new task when i click the add Task button
 addBtn.addEventListener("click", handleAddEditTask);
-function handleAddEditTask()
- {
+function handleAddEditTask() {
   var inputboxText = taskInput.value.trim();
   var dueDatevalue = dueDate.value;
   //crating new date assign in create date in english indian formate
@@ -76,35 +76,35 @@ function handleAddEditTask()
     day: "numeric",
   });
   //check condition is empty task input field or due date
-  if (inputboxText == "" || dueDatevalue == "") {  
+  if (inputboxText == "" || dueDatevalue == "") {
     return;
   }
- //checking here are  equal -1  these variabl's value
+  //checking here are  equal -1  these variabl's value
   if (updateTodoTaskIndex == -1 && updateprogressTaskIndex == -1 &&
-     updateDoneTaskIndex == -1 && updateBacklogTaskIndex == -1) {
+    updateDoneTaskIndex == -1 && updateBacklogTaskIndex == -1) {
 
-      // Create todo task object when all update varible value is -1
-let todoTask = {
-  title: inputboxText,
-  createDate: createDatevalue,
-  update: "",
-  due: dueDatevalue,
-};
-// push task in array
-todoListData.push(todoTask);
-// Save todoarray in localStorage
- var stringTodoTask = JSON.stringify(todoListData)
-localStorage.setItem("TODO", stringTodoTask);
-     taskInput.value = " ";
+    // Create todo task object when all update varible value is -1
+    let todoTask = {
+      title: inputboxText,
+      createDate: createDatevalue,
+      update: "",
+      due: dueDatevalue,
+    };
+    // push task in array
+    todoListData.push(todoTask);
+    // Save todoarray in localStorage
+    var stringTodoTask = JSON.stringify(todoListData)
+    localStorage.setItem("TODO", stringTodoTask);
+    taskInput.value = " ";
     dueDate.value = " ";
     searchInput.value = "";
     createTodoList();
     handleSearchListItem();
   }
   //logic for todo task update when click add button
-   else if (updateTodoTaskIndex != -1) {
+  else if (updateTodoTaskIndex != -1) {
     todoListData[updateTodoTaskIndex].title = taskInput.value;
-        todoListData[updateTodoTaskIndex].update = new Date().toLocaleString("en-IN", {
+    todoListData[updateTodoTaskIndex].update = new Date().toLocaleString("en-IN", {
       weekday: "long",
       year: "numeric",
       month: "short",
@@ -113,10 +113,10 @@ localStorage.setItem("TODO", stringTodoTask);
 
     todoListData[updateTodoTaskIndex].due = dueDate.value;
 
-// update todo array in local storage
- var stringTodoTask = JSON.stringify(todoListData)
-localStorage.setItem("TODO", stringTodoTask);
-//end
+    // update todo array in local storage
+    var stringTodoTask = JSON.stringify(todoListData)
+    localStorage.setItem("TODO", stringTodoTask);
+    //end
     dueDate.value = "";
     taskInput.value = "";
     searchInput.value = "";
@@ -126,7 +126,7 @@ localStorage.setItem("TODO", stringTodoTask);
   }
   //logic for progress task update when click add button
   else if (updateprogressTaskIndex != -1) {
-   
+
     progressListData[updateprogressTaskIndex].title = taskInput.value;
     progressListData[updateprogressTaskIndex].update = new Date().toLocaleString("en-IN", {
       weekday: "long",
@@ -137,9 +137,9 @@ localStorage.setItem("TODO", stringTodoTask);
 
     progressListData[updateprogressTaskIndex].due = dueDate.value;
     // update  progress array task  in local storage
- var stringProgresTask = JSON.stringify(progressListData)
-localStorage.setItem("PROGRESS", stringProgresTask);
-//end
+    var stringProgresTask = JSON.stringify(progressListData)
+    localStorage.setItem("PROGRESS", stringProgresTask);
+    //end
     dueDate.value = "";
     taskInput.value = "";
     searchInput.value = "";
@@ -149,7 +149,7 @@ localStorage.setItem("PROGRESS", stringProgresTask);
   }
   // update done task when click add button
   else if (updateDoneTaskIndex != -1) {
-   
+
     completedListData[updateDoneTaskIndex].title = taskInput.value;
     completedListData[updateDoneTaskIndex].update = new Date().toLocaleString("en-IN", {
       weekday: "long",
@@ -159,10 +159,10 @@ localStorage.setItem("PROGRESS", stringProgresTask);
     });
 
     completedListData[updateDoneTaskIndex].due = dueDate.value;
-     // update  completed array in local storage
- var stringDoneTask = JSON.stringify(completedListData)
-localStorage.setItem("COMPLETED", stringDoneTask);
-//end
+    // update  completed array in local storage
+    var stringDoneTask = JSON.stringify(completedListData)
+    localStorage.setItem("COMPLETED", stringDoneTask);
+    //end
     dueDate.value = "";
     taskInput.value = "";
     searchInput.value = "";
@@ -172,7 +172,7 @@ localStorage.setItem("COMPLETED", stringDoneTask);
   }
   //logic for todo task update when click add button
   else if (updateBacklogTaskIndex != -1) {
-    
+
     delayListData[updateBacklogTaskIndex].title = taskInput.value;
     delayListData[updateBacklogTaskIndex].update = new Date().toLocaleString("en-IN", {
       weekday: "long",
@@ -182,10 +182,10 @@ localStorage.setItem("COMPLETED", stringDoneTask);
     });
 
     delayListData[updateBacklogTaskIndex].due = dueDate.value;
-       // update backlog array  in local storage
- var stringBacklogTask = JSON.stringify(delayListData)
-localStorage.setItem("BACKLOG", stringBacklogTask);
-//end
+    // update backlog array  in local storage
+    var stringBacklogTask = JSON.stringify(delayListData)
+    localStorage.setItem("BACKLOG", stringBacklogTask);
+    //end
     dueDate.value = "";
     taskInput.value = "";
     searchInput.value = "";
@@ -200,123 +200,101 @@ localStorage.setItem("BACKLOG", stringBacklogTask);
 function createTodoList() {
   todoList.innerHTML = "";
   //this logic for displaying total number of task present in the section
- var totalTodo = document.querySelector("#tTaskHeading");
- var todoL = todoListData.length;
-totalTodo.children[0].innerHTML = todoL;
-//end
-  // for (let i = 0; i < todoListData.length; i++) {
-  //   todoList.insertAdjacentHTML(
-  //     "beforeend",
-  //     `<li class="todoListItem">
-  //       <div class="todoListDetail">
-  //       <div class="todoTask">${todoListData[i].title}</div>
-  //       <div class="todoCreateDate">Created: ${todoListData[i].createDate}</div>
-  //        <div class="todoUpdateDate">Update: ${todoListData[i].update}</div>
-  //       <div class="todoDueDate">Due: ${todoListData[i].due}</div>
-  //       </div>
-  //       <div class="todoiconContainer">
-  //         <div class="todoEditButton"><img src="./public/images/update.svg" alt="update"></div>
-  //       <div class="todoBacklog"><img src="./public/images/moveBack.svg" alt="update"></div>
-  //       <div class="todoMoveButton"><img src="./public/images/move.svg" alt="update"></div>
-  //       <div class="todoDeleteButton"><img src="./public/images/delete.svg" alt="update"></div>
-  //       </div>
-  //       </li>
-  //               `
-  //   );
-  // }
-   for (let i = 0; i < todoListData.length; i++) {
+  var totalTodo = document.querySelector("#tTaskHeading");
+  var todoL = todoListData.length;
+  totalTodo.children[0].innerHTML = todoL;
+  for (let i = 0; i < todoListData.length; i++) {
     todoList.insertAdjacentHTML(
       "beforeend",
-      createNode({
-        title:todoListData[i].title,
-        createDate:todoListData[i].createDate,
-        update:todoListData[i].update,
-        due:todoListData[i].due
+      createTodoTask({
+        title: todoListData[i].title,
+        createDate: todoListData[i].createDate,
+        update: todoListData[i].update,
+        due: todoListData[i].due
       })
-      
+
     );
   }
   let todoListItem = document.querySelectorAll(".todoListItem");
 
-  for (let i = 0; i < todoListData.length; i++) { 
-    
+  for (let i = 0; i < todoListData.length; i++) {
+
     //logic to update todo  task 
     todoListItem[i]
       .querySelector(".todoEditButton")
       .addEventListener("click", todoEditList);
     function todoEditList() {
-      taskInput.value =  todoListData[i].title;
-      dueDate.value = todoListData[i].due;     
+      taskInput.value = todoListData[i].title;
+      dueDate.value = todoListData[i].due;
       updateTodoTaskIndex = i;
     }
-      //move todo task  to backlog 
+    //move todo task  to backlog 
     todoListItem[i]
       .querySelector(".todoBacklog").addEventListener("click", todobacklogList);
-      function todobacklogList()
-      {
-       var todoBacklogListTitle = todoListData[i].title;
+    function todobacklogList() {
+      var todoBacklogListTitle = todoListData[i].title;
       var todoBacklogListCreate = todoListData[i].createDate;
       var todoBacklogListDue = todoListData[i].due;
-  let backTask = {
-  title: todoBacklogListTitle,
-  createDate: todoBacklogListCreate,
-  update: "",
-  due: todoBacklogListDue,
-};
-// Add task to array/
-delayListData.push(backTask);
-   todoListData.splice(i, 1);
-   createDelayList();
+      let backTask = {
+        title: todoBacklogListTitle,
+        createDate: todoBacklogListCreate,
+        update: "",
+        due: todoBacklogListDue,
+      };
+      // Add task to array/
+      delayListData.push(backTask);
+      todoListData.splice(i, 1);
+      createDelayList();
       createTodoList();
-     // update backlog array to localStorage
- var stringBackInTask = JSON.stringify(delayListData);
-localStorage.setItem("BACKLOG", stringBackInTask);
- //update todo array to local storage
-var stringTodoTask = JSON.stringify(todoListData);
-localStorage.setItem("TODO",stringTodoTask );
-//end
+      // update backlog array to localStorage
+      var stringBackInTask = JSON.stringify(delayListData);
+      localStorage.setItem("BACKLOG", stringBackInTask);
+      //update todo array to local storage
+      var stringTodoTask = JSON.stringify(todoListData);
+      localStorage.setItem("TODO", stringTodoTask);
+      //end
 
-  dueDate.value = "";
-    taskInput.value = "";
+      dueDate.value = "";
+      taskInput.value = "";
     }
-//logic for move todo task in progress
+    //logic for move todo task in progress
     todoListItem[i]
       .querySelector(".todoMoveButton")
       .addEventListener("click", todoMoveList);
-    function todoMoveList() { 
-            var todoProgListTitle = todoListData[i].title;
+    function todoMoveList() {
+      var todoProgListTitle = todoListData[i].title;
       var todoProgListCreate = todoListData[i].createDate;
       var todoProgListDue = todoListData[i].due;
-  let forwardTask = {
-  title: todoProgListTitle,
-  createDate: todoProgListCreate,
-  update: "",
-  due: todoProgListDue,
-};
-// Add task to array/
-progressListData.push(forwardTask);
-  todoListData.splice(i, 1);
+      let forwardTask = {
+        title: todoProgListTitle,
+        createDate: todoProgListCreate,
+        update: "",
+        due: todoProgListDue,
+      };
+      // Add task to array/
+      progressListData.push(forwardTask);
+      todoListData.splice(i, 1);
       createTodoList();
       createProgressList();
       // update progress array in local
-       var stringprogTask = JSON.stringify(progressListData);
-       localStorage.setItem("PROGRESS", stringprogTask);
-       //update todo array in local storage 
-var stringTodoTask = JSON.stringify(todoListData);
-localStorage.setItem("TODO",stringTodoTask );
-//end
- dueDate.value = "";
-    taskInput.value = "";
- 
-     }
-        
+      var stringprogTask = JSON.stringify(progressListData);
+      localStorage.setItem("PROGRESS", stringprogTask);
+      //update todo array in local storage 
+      var stringTodoTask = JSON.stringify(todoListData);
+      localStorage.setItem("TODO", stringTodoTask);
+      //end
+      dueDate.value = "";
+      taskInput.value = "";
+
+    }
+
     todoListItem[i]
       .querySelector(".todoDeleteButton")
       .addEventListener("click", todoDeleteList);
     function todoDeleteList() {
       todoListData.splice(i, 1);
       var todoStringyTask = JSON.stringify(todoListData);
-      localStorage.setItem("TODO",todoStringyTask);
+      localStorage.setItem("TODO", todoStringyTask);
 
       taskInput.value = "";
       createTodoList();
@@ -326,74 +304,38 @@ localStorage.setItem("TODO",stringTodoTask );
 //this logic is for create progress list
 function createProgressList() {
   progressList.innerHTML = "";
-  var progressHeading= document.querySelector("#pTaskHeading");
-var progressL = progressListData.length;
-progressHeading.children[0].innerHTML = progressL ;
+  var progressHeading = document.querySelector("#pTaskHeading");
+  var progressL = progressListData.length;
+  progressHeading.children[0].innerHTML = progressL;
   for (let i = 0; i < progressListData.length; i++) {
     progressList.insertAdjacentHTML(
       "beforeend",
-      `<li class="progressListItem">
-        <div class="progressListDetail">
-        <div class="progressTask">${progressListData[i].title}</div>
-        <div class="progressCreateDate">Created: ${progressListData[i].createDate}</div>
-         <div class="progressUpdateDate">Update: ${progressListData[i].update}</div>
-        <div class="progressDueDate">Due: ${progressListData[i].due}</div>
-        </div>
-        <div class="progressIconContainer">
-         <div class="progressEditButton"> <img src="./public/images/update.svg" alt="update"></div>
-        <div class="progressMoveInTodo"><img src="./public/images/moveBack.svg" alt="update"></div>
-        <div class="progressMoveButton"><img src="./public/images/move.svg" alt="update"></div>
-        <div class="progressDeleteButton"><img src="./public/images/delete.svg" alt="update"></div>
-        </div>
-        </li>
-        `
+      createProgressTask({
+        title: progressListData[i].title,
+        createDate: progressListData[i].createDate,
+        update: progressListData[i].update,
+        due: progressListData[i].due
+      })
+
     );
   }
   let progressListItem = document.querySelectorAll(".progressListItem");
   for (let i = 0; i < progressListData.length; i++) {
-    
-//update progress task
-    progressListItem[i]
-      .querySelector(".progressDeleteButton")
-      .addEventListener("click", ProgressDeleteList);
+
+    //update progress task
+    progressListItem[i].querySelector(".progressDeleteButton").addEventListener("click", ProgressDeleteList);
     function ProgressDeleteList() {
       progressListData.splice(i, 1);
-        var progressStringyTask = JSON.stringify(progressListData);
-      localStorage.setItem("PROGRESS",progressStringyTask);
+      var progressStringyTask = JSON.stringify(progressListData);
+      localStorage.setItem("PROGRESS", progressStringyTask);
       createProgressList();
     }
     //move task in todo from progress
     progressListItem[i]
       .querySelector(".progressMoveInTodo")
       .addEventListener("click", progressListMoveInTodo);
-    function progressListMoveInTodo() {
-       var todoListTitle = progressListData[i].title;
-      var todoListCreate = progressListData[i].createDate;
-      var todoListDue = progressListData[i].due;
-        let forwardTaskInTodo = {
-  title: todoListTitle,
-  createDate: todoListCreate,
-  update: "",
-  due: todoListDue,
-};
-// Add task to array/
-todoListData.push(forwardTaskInTodo);
- progressListData.splice(i, 1);
-createTodoList();
- createProgressList();
-//update todo array in local storage 
- var stringTodoTask = JSON.stringify(todoListData)
-localStorage.setItem("TODO", stringTodoTask);
 
-     // update progress array in local storage   
-var stringPrTask = JSON.stringify(progressListData);
-localStorage.setItem("PROGRESS",stringPrTask);
-     
-//END
-     dueDate.value = "";
-    taskInput.value = "";
-        }
-        //move progress task in completed
+    //move progress task in completed
     progressListItem[i]
       .querySelector(".progressMoveButton")
       .addEventListener("click", progressMoveLists);
@@ -407,35 +349,62 @@ localStorage.setItem("PROGRESS",stringPrTask);
         month: "short",
         day: "numeric",
       });
-       let forwardTaskInCom = {
-  title: completedListTitle,
-  createDate: completedListCreate,
-  compledDate : completedListCompleted,
-  update: "",
-  due: completedListDue,
-};
-// Add task to array/
-completedListData.push(forwardTaskInCom);
-  progressListData.splice(i, 1);
+      let forwardTaskInCom = {
+        title: completedListTitle,
+        createDate: completedListCreate,
+        compledDate: completedListCompleted,
+        update: "",
+        due: completedListDue,
+      };
+      // Add task to array/
+      completedListData.push(forwardTaskInCom);
+      progressListData.splice(i, 1);
       createCompletedList();
       createProgressList();
-     //update progress array in local storage     
-       var stringprogTask = JSON.stringify(progressListData);
-       localStorage.setItem("PROGRESS", stringprogTask);
- //update completed in local storage
-var stringComTask = JSON.stringify(completedListData);
-localStorage.setItem("COMPLETED",stringComTask );
-//end
- dueDate.value = "";
-    taskInput.value = "";
-     
+      //update progress array in local storage     
+      var stringprogTask = JSON.stringify(progressListData);
+      localStorage.setItem("PROGRESS", stringprogTask);
+      //update completed in local storage
+      var stringComTask = JSON.stringify(completedListData);
+      localStorage.setItem("COMPLETED", stringComTask);
+      //end
+      dueDate.value = "";
+      taskInput.value = "";
+
+    }
+    function progressListMoveInTodo() {
+      var todoListTitle = progressListData[i].title;
+      var todoListCreate = progressListData[i].createDate;
+      var todoListDue = progressListData[i].due;
+      let forwardTaskInTodo = {
+        title: todoListTitle,
+        createDate: todoListCreate,
+        update: "",
+        due: todoListDue,
+      };
+      // Add task to array/
+      todoListData.push(forwardTaskInTodo);
+      progressListData.splice(i, 1);
+      createTodoList();
+      createProgressList();
+      //update todo array in local storage 
+      var stringTodoTask = JSON.stringify(todoListData)
+      localStorage.setItem("TODO", stringTodoTask);
+
+      // update progress array in local storage   
+      var stringPrTask = JSON.stringify(progressListData);
+      localStorage.setItem("PROGRESS", stringPrTask);
+
+      //END
+      dueDate.value = "";
+      taskInput.value = "";
     }
     //update progress task
     progressListItem[i]
       .querySelector(".progressEditButton")
       .addEventListener("click", progressEditList);
     function progressEditList() {
-      taskInput.value =  progressListData[i].title;
+      taskInput.value = progressListData[i].title;
       dueDate.value = progressListData[i].due;
       updateprogressTaskIndex = i;
     }
@@ -446,29 +415,30 @@ localStorage.setItem("COMPLETED",stringComTask );
 function createCompletedList() {
   completedList.innerHTML = "";
   //this logic for displaying total number present task length
-   var doneHeading = document.querySelector("#dTaskHeading");
-var doneL = completedListData.length;
-doneHeading.children[0].innerHTML = doneL;
+  var doneHeading = document.querySelector("#dTaskHeading");
+  var doneL = completedListData.length;
+  doneHeading.children[0].innerHTML = doneL;
+
   for (let i = 0; i < completedListData.length; i++) {
+    //we have to chenge completed Date to compledDate
+    var completedDate = new Date().toLocaleString("en-IN", {
+      weekday: "long",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
     completedList.insertAdjacentHTML(
       "beforeend",
-      `<li class="completedListItem">
-        <div class="completedListDetail">
-        <div class="completedTask">${completedListData[i].title}</div>
-        <div class="completedCreateDate">Created: ${completedListData[i].createDate}</div>
-         <div class="completedDueDate">due: ${completedListData[i].due}</div>
-           <div class="completedUpdateDate">Update: ${completedListData[i].update}</div>
-        <div class="completedDueDate">Completed: ${completedListData[i].compledDate}</div>
-        </div>
-        <div class="completedIconContainer">
-         <div class="completedEditButton"> <img src="./public/images/update.svg" alt="update"></div>
-          <div class="comeMoveInProg"><img src="./public/images/moveBack.svg" alt="update"></div>
-        <div class="completedMoveButton"><img src="./public/images/move.svg" alt="update"></div>
-        <div class="completedDeleteButton"><img src="./public/images/delete.svg" alt="update"></div>
-        </div>
-        </li>
-        `
+      createCompletedTask({
+        title: completedListData[i].title,
+        createDate: completedListData[i].createDate,
+        update: completedListData[i].update,
+        due: completedListData[i].due,
+        compledDate: completedDate
+      })
+
     );
+
   }
   let completedListItem = document.querySelectorAll(".completedListItem");
   for (let i = 0; i < completedListData.length; i++) {
@@ -479,47 +449,47 @@ doneHeading.children[0].innerHTML = doneL;
     function completedDeleteList() {
       completedListData.splice(i, 1);
       //after remove the task completed array is updated in local Storage
-        var completedStringyTask = JSON.stringify(completedListData);
-      localStorage.setItem("COMPLETED",completedStringyTask);
+      var completedStringyTask = JSON.stringify(completedListData);
+      localStorage.setItem("COMPLETED", completedStringyTask);
       //end
       createCompletedList();
     }
     //completed task move in progress task section
     completedListItem[i].querySelector(".comeMoveInProg").addEventListener("click", progressListMoveInTodo);
-     function progressListMoveInTodo() {
+    function progressListMoveInTodo() {
       var prCreateListTitle = completedListData[i].title;
       var prCreateListCreate = completedListData[i].createDate;
       var prCreateListdue = completedListData[i].compledDate;
-       let forwardTaskInprogress = {
-  title: prCreateListTitle ,
-  createDate: prCreateListCreate,
-  compledDate :  prCreateListdue,
-  update: "",
- due: prCreateListdue,
-};
-// Add task to array/
-progressListData.push(forwardTaskInprogress);
-  completedListData.splice(i, 1);
+      let forwardTaskInprogress = {
+        title: prCreateListTitle,
+        createDate: prCreateListCreate,
+        compledDate: prCreateListdue,
+        update: "",
+        due: prCreateListdue,
+      };
+      // Add task to array/
+      progressListData.push(forwardTaskInprogress);
+      completedListData.splice(i, 1);
       createCompletedList();
       createProgressList();
-// update completed array in local storage
-    var stringCom = JSON.stringify(completedListData);
+      // update completed array in local storage
+      var stringCom = JSON.stringify(completedListData);
       localStorage.setItem("COMPLETED", stringCom);
       //update progress array in local storage
-var stringPrTask = JSON.stringify(progressListData);
-localStorage.setItem("PROGRESS",stringPrTask);
-     
-//END
- dueDate.value = "";
-    taskInput.value = "";
+      var stringPrTask = JSON.stringify(progressListData);
+      localStorage.setItem("PROGRESS", stringPrTask);
+
+      //END
+      dueDate.value = "";
+      taskInput.value = "";
     }
     //completed task is moving in sign section
-       completedListItem[i].querySelector(".completedMoveButton").addEventListener("click", completedAddListInsign);
-    function completedAddListInsign() {      
+    completedListItem[i].querySelector(".completedMoveButton").addEventListener("click", completedAddListInsign);
+    function completedAddListInsign() {
       var signListTitle = completedListData[i].title;
       var signListCreate = completedListData[i].createDate;
       var signListDue = completedListData[i].due;
-        var signListExpiry = new Date().toLocaleString("en-IN", {
+      var signListExpiry = new Date().toLocaleString("en-IN", {
         weekday: "long",
         year: "numeric",
         month: "short",
@@ -531,38 +501,39 @@ localStorage.setItem("PROGRESS",stringPrTask);
         month: "short",
         day: "numeric",
       });
-  let forwardTaskInSign = {
-  title: signListTitle,
-  createDate: signListCreate,
-  compledDate :  signCompleted,
-   expiry: signListExpiry,
-  due: signListDue,
-};
-// Add task to array/
-signListData.push(forwardTaskInSign);
-  completedListData.splice(i, 1);
-   createCompletedList();
+      let forwardTasksInSign = {
+        title: signListTitle,
+        createDate: signListCreate,
+        compledDate: signCompleted,
+        expiry: signListExpiry,
+        due: signListDue,
+      };
+      alert("HERE IS FINE");
+      signListData.push(forwardTasksInSign);
       createSignList();
+      completedListData.splice(i, 1);
+      createCompletedList();
+
       //completed task array is updating in local storage 
-  var stringComgTask = JSON.stringify(completedListData);
-       localStorage.setItem("COMPLETED", stringComgTask);
- //sign array is updating in local storage
-var stringDonTask = JSON.stringify(signListData);
-localStorage.setItem("SIGN",stringDonTask );
-//end
- dueDate.value = "";
-    taskInput.value = "";
-          }
-          //updating is completed task 
-        completedListItem[i]
+      var stringComgTask = JSON.stringify(completedListData);
+      localStorage.setItem("COMPLETED", stringComgTask);
+      //sign array is updating in local storage
+      var stringDonTask = JSON.stringify(signListData);
+      localStorage.setItem("SIGN", stringDonTask);
+      //end
+      dueDate.value = "";
+      taskInput.value = "";
+    }
+    //updating is completed task 
+    completedListItem[i]
       .querySelector(".completedEditButton")
       .addEventListener("click", completedEditList);
     function completedEditList() {
-      taskInput.value =  completedListData[i].title;
-      dueDate.value = completedListData[i].due;  
-         updateDoneTaskIndex = i;
-             }
-   
+      taskInput.value = completedListData[i].title;
+      dueDate.value = completedListData[i].due;
+      updateDoneTaskIndex = i;
+    }
+
   }
 }
 //this logic is for create create list
@@ -570,24 +541,24 @@ function createSignList() {
   signList.innerHTML = "";
   //displayin length of all task present in the sign section
   var signHeading = document.querySelector("#eTaskHeading");
-var signL = signListData.length;
-signHeading.children[0].innerHTML = signL;
+  var signL = signListData.length;
+  signHeading.children[0].innerHTML = signL;
+  //end
   for (let i = 0; i < signListData.length; i++) {
+    var signExpiry = new Date().toLocaleString("en-IN", {
+      weekday: "long",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
     signList.insertAdjacentHTML(
       "beforeend",
-      `<li class="signListItem">
-        <div class="signListDetail">
-        <div class="signTask">${signListData[i].title}</div>
-         <div class="signExpiryDate">Create: ${signListData[i].createDate}</div>
-        <div class="signExpiryDate">Expiry: ${signListData[i].expiry}</div>
-        <div class="signCompletedDate">Completed: ${signListData[i].compledDate}</div>
-        </div>
-        <div class="signIconContainer">
-         <div class="signMoveInCompleted"><img src="./public/images/moveBack.svg" alt="update"></div>
-         <div class="signDeleteButton"><img src="./public/images/delete.svg" alt="update"></div>
-        </div>
-        </li>
-        `
+      createSignTasks({
+        title: signListData[i].title,
+        createDate: signListData[i].createDate,
+        compledDate: signListData[i].compledDate,
+        expiry: signExpiry,
+      })
     );
   }
   let signListItem = document.querySelectorAll(".signListItem");
@@ -598,16 +569,16 @@ signHeading.children[0].innerHTML = signL;
       .addEventListener("click", signDeletList);
     function signDeletList() {
       signListData.splice(i, 1);
-        //update the sign array in local storage
-        var signStringyTask = JSON.stringify(signListData);
-      localStorage.setItem("SIGN",signStringyTask);
+      //update the sign array in local storage
+      var signStringyTask = JSON.stringify(signListData);
+      localStorage.setItem("SIGN", signStringyTask);
       //end
       createSignList();
     }
     //move sign task in completed section
     signListItem[i].querySelector(".signMoveInCompleted").addEventListener("click", signListMoveInCompleted);
     function signListMoveInCompleted() {
-           var completedListTitle = signListData[i].title;
+      var completedListTitle = signListData[i].title;
       var completedListCreate = signListData[i].createDate;
       var completedListCompleted = new Date().toLocaleString("en-IN", {
         weekday: "long",
@@ -615,26 +586,26 @@ signHeading.children[0].innerHTML = signL;
         month: "short",
         day: "numeric",
       });
-     var  backInCompleted = {
+      var backInCompleted = {
         title: completedListTitle,
         createDate: completedListCreate,
         update: "",
         compledDate: completedListCompleted,
       };
       completedListData.push(backInCompleted);
-     signListData.splice(i, 1);
-       createCompletedList();      
+      signListData.splice(i, 1);
+      createCompletedList();
       createSignList();
-//update completed array in local storage
-       var stringCom = JSON.stringify(completedListData);
+      //update completed array in local storage
+      var stringCom = JSON.stringify(completedListData);
       localStorage.setItem("COMPLETED", stringCom);
       //update sign task in local storage
-var stringsignTask = JSON.stringify(signListData);
-localStorage.setItem("SIGN",stringsignTask);
-//end code     
-    
-       dueDate.value = "";
-    taskInput.value = "";
+      var stringsignTask = JSON.stringify(signListData);
+      localStorage.setItem("SIGN", stringsignTask);
+      //end code     
+
+      dueDate.value = "";
+      taskInput.value = "";
     }
   }
 }
@@ -642,53 +613,48 @@ localStorage.setItem("SIGN",stringsignTask);
 function createDelayList() {
   delayList.innerHTML = "";
   var backlogHeading = document.querySelector("#bTaskHeading");
-var backlogL = delayListData.length;
-backlogHeading.children[0].innerHTML = backlogL;
-  for (let i = 0; i < delayListData.length; i++) {
-    delayList.insertAdjacentHTML(
-      "beforeend",
-      `<li class="delayListItem">
-        <div class="backlogListDetail">
-        <div class="backlogTask">${delayListData[i].title}</div>
-         <div class="backlogCreateDate">Created:${delayListData[i].createDate}</div>
-         <div class="backlogupdateDate">update: ${delayListData[i].update}</div>
-          <div class="backlogdueDate">Due: ${delayListData[i].due}</div>
-            </div>  
-        <div class="backlogIconContainer"> 
-          <div class="backlogEditButton"> <img src="./public/images/update.svg" alt="update"></div> 
-        <div class="BacklogMoveTodo"><img src="./public/images/move.svg" alt="update"></div>    
-        <div class="delayDeleteButton"> <img src="./public/images/delete.svg" alt="update"></div>        
-        </div>
-        </li>
-        `
-    );
-  }
+  var backlogL = delayListData.length;
+  backlogHeading.children[0].innerHTML = backlogL;
 
+  for (let i = 0; i < delayListData.length; i++) {
+    {
+      delayList.insertAdjacentHTML(
+        "beforeend",
+        createBacklogTask({
+          title: delayListData[i].title,
+          createDate: delayListData[i].createDate,
+          update: delayListData[i].update,
+          due: delayListData[i].due,
+
+        })
+      );
+    }
+  }
   let delayListItem = document.querySelectorAll(".delayListItem");
   for (let i = 0; i < delayListData.length; i++) {
     //update delay task
-      delayListItem[i]
+    delayListItem[i]
       .querySelector(".backlogEditButton")
       .addEventListener("click", backlogEditList);
     function backlogEditList() {
-       taskInput.value = delayListData[i].title;
+      taskInput.value = delayListData[i].title;
       dueDate.value = delayListData[i].due;
-             
+
       updateBacklogTaskIndex = i;
     }
- //delete the delay task
+    //delete the delay task
     delayListItem[i]
       .querySelector(".delayDeleteButton")
       .addEventListener("click", delayDeleteList);
     function delayDeleteList() {
       delayListData.splice(i, 1);
-        //after remove the task update local Storage
-        var delayStringyTask = JSON.stringify(delayListData);
-      localStorage.setItem("BACKLOG",delayStringyTask);
+      //after remove the task update local Storage
+      var delayStringyTask = JSON.stringify(delayListData);
+      localStorage.setItem("BACKLOG", delayStringyTask);
       //end
       createDelayList();
     }
-//delay task is move in todo task section
+    //delay task is move in todo task section
     delayListItem[i]
       .querySelector(".BacklogMoveTodo")
       .addEventListener("click", backlogAddList);
@@ -703,32 +669,32 @@ backlogHeading.children[0].innerHTML = backlogL;
         day: "numeric",
       });
 
-       var addtodoListItem = {
+      var addtodoListItem = {
         title: todoListTitle,
         createDate: todoListCreate,
         update: todoListupdate,
         due: todoListCompleted,
       }
       todoListData.push(addtodoListItem);
-       delayListData.splice(i, 1);
-        createDelayList();
+      delayListData.splice(i, 1);
+      createDelayList();
       createTodoList();
-   //update the backlog array in local storage
-var stringBackInTask = JSON.stringify(delayListData);
-localStorage.setItem("BACKLOG", stringBackInTask);
- //update the todo array in local storage
-var stringTodoTask = JSON.stringify(todoListData);
-localStorage.setItem("TODO",stringTodoTask );
+      //update the backlog array in local storage
+      var stringBackInTask = JSON.stringify(delayListData);
+      localStorage.setItem("BACKLOG", stringBackInTask);
+      //update the todo array in local storage
+      var stringTodoTask = JSON.stringify(todoListData);
+      localStorage.setItem("TODO", stringTodoTask);
 
-       dueDate.value = "";
-    taskInput.value = "";
+      dueDate.value = "";
+      taskInput.value = "";
     }
   }
 }
 //this logic is for search task
- var searchInput = document.querySelector("#searchInput");
- let searchBtn = document.querySelector("#searchBtn");
-  let clearBtn = document.querySelector("#clearBtn");
+var searchInput = document.querySelector("#searchInput");
+let searchBtn = document.querySelector("#searchBtn");
+let clearBtn = document.querySelector("#clearBtn");
 
 searchBtn.addEventListener("click", handleSearchListItem);
 function handleSearchListItem() {
@@ -780,7 +746,7 @@ function handleSearchListItem() {
       delayItems[i].style.display = "none";
     }
   }
-   for (let i = 0; signListData.length; i++) {
+  for (let i = 0; signListData.length; i++) {
     let signText = signListData[i].title;
     signText = signText.toLowerCase();
     let signListismatch = signText.includes(searchTaskvalue);
@@ -791,7 +757,7 @@ function handleSearchListItem() {
     }
   }
 
-  
+
   for (let i = 0; i < signListData.length; i++) {
     let signtext = signListData[i].title;
     signtext = signtext.toLowerCase();
@@ -805,7 +771,7 @@ function handleSearchListItem() {
 }
 
 clearBtn.addEventListener("click", handleClearTask);
- function handleClearTask() {
+function handleClearTask() {
   searchInput.value = "";
   createTodoList();
   createProgressList();

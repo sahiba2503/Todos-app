@@ -291,8 +291,9 @@ li {
 .todoListDetail .todoTask,
 .progressListDetail .progressTask,
 .completedListDetail .completedTask,
-.signListDetail .signTask .backlogListDetail,
-.backlogTask {
+.signListDetail .signTask,
+ .backlogListDetail .backlogTask
+ {
     color: black;
     font-size: 2rem;
     padding-bottom: 1rem;
