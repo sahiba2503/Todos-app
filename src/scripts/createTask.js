@@ -1,4 +1,5 @@
-export const createTodoTask = ({title,createDate,update,due})=>{
+export {createTodoTask,createProgressTask ,createCompletedTask,createSignTasks,createBacklogTask}
+ const createTodoTask = ({title,createDate,update,due})=>{
 return `<li class="todoListItem">
         <div class="todoListDetail">
         <div class="todoTask">${title}</div>
@@ -14,7 +15,7 @@ return `<li class="todoListItem">
         </div>
         </li> `
 };
-export const createProgressTask = ({title,createDate,update,due})=>{
+ const createProgressTask = ({title,createDate,update,due})=>{
   return `<li class="progressListItem">
          <div class="progressListDetail">
          <div class="progressTask">${title}</div>
@@ -31,14 +32,14 @@ export const createProgressTask = ({title,createDate,update,due})=>{
          </li>`
    
 }
-export const createCompletedTask = ({title,createDate,update,due,compledDate})=>{
+ const createCompletedTask = ({title,createDate,update,due,completedDate})=>{
   return `<li class="completedListItem">
         <div class="completedListDetail">
         <div class="completedTask">${title}</div>
         <div class="completedCreateDate">Created: ${createDate}</div>
            <div class="completedUpdateDate">Update: ${update}</div>
          <div class="completedDueDate">due: ${due}</div>        
-        <div class="completedDueDate">Completed: ${compledDate}</div>
+        <div class="completedDueDate">Completed: ${completedDate}</div>
         </div>
         <div class="completedIconContainer">
          <div class="completedEditButton"> <img src="./public/images/update.svg" alt="update"></div>
@@ -49,12 +50,12 @@ export const createCompletedTask = ({title,createDate,update,due,compledDate})=>
         </li>
         `
 }
-export const createSignTasks = ({title,createDate,compledDate,signExpiry})=>{
+ const createSignTasks = ({title,createDate,completedDate,signExpiry})=>{
   return `<li class="signListItem">
          <div class="signListDetail">
          <div class="signTask">${title}</div>
           <div class="signExpiryDate">Create: ${createDate}</div>
-          <div class="signCompletedDate">Completed: ${compledDate}</div>
+          <div class="signCompletedDate">Completed: ${completedDate}</div>
          <div class="signExpiryDate">Expiry: ${signExpiry}</div>
           </div>
          <div class="signIconContainer">
@@ -65,7 +66,7 @@ export const createSignTasks = ({title,createDate,compledDate,signExpiry})=>{
          `
 }
 
-export const createBacklogTask = ({ title="",createDate="",update="",due="" })=>{
+ const createBacklogTask = ({ title="",createDate="",update="",due="" })=>{
   return `<li class="delayListItem">
         <div class="backlogListDetail">
         <div class="backlogTask">${title}</div>
