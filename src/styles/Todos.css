@@ -1,0 +1,615 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(315deg, #667EEA 64.64%, #764BA2 135.36%);
+    width: 100vw;
+   }
+html{
+    font-size: 1rem;
+}
+
+#headingTaskContainer {
+     width: 100%;
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+
+#allTaskBtn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#allTaskBtn #backBtn,
+#todoBtn,
+#proBtn,
+#donBtn,
+#expiryBtn {
+    padding: 5px 7px;
+    border-radius: 9px;
+    color: #FFFF;
+    background-color: #7358e1;
+    font-size: 1rem;
+}
+#allTaskBtn {
+    display: none;
+}
+main {
+     width: 100%;
+    margin-top: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    text-align: center;
+    font-size: 4rem;
+    color: #FFFF;
+}
+body i:hover {
+    cursor: pointer;
+}
+#InputTaskContainer {
+    border: none;
+    border-radius: 15px;
+    width: 46%;
+    padding: 20px;
+    background-color: #FFFF;
+}
+
+#InputTaskContainer input,
+button {
+    border: 2px solid rgb(210, 209, 209);
+    width: 100%;
+    padding: 1rem;
+     border-radius: 1rem;
+}
+#InputTaskContainer input {
+    border: 2px solid #E9ECEF;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+ background-color: #F8F9FA;
+
+       
+}
+#dueDate{
+    color:#FFFF;
+}
+input::placeholder{
+    color: #212529;
+
+}
+
+#InputTaskContainer #dueDate {
+    color: black;
+}
+#InputTaskContainer #addBtn {
+    background: linear-gradient(315deg, #667EEA 64.64%, #764BA2 135.36%);
+    font-size: 1.1rem;
+    border: none;
+    color: #FFFF;
+}
+#InputTaskContainer #addBtn:hover {
+   font-size: 1.3rem;
+}
+#searchContainer {
+    border-radius: 1.3rem;
+    margin-top: 1.5rem;
+    width: 46%;
+    height: 50px;
+    color: #FFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFF;
+}
+#searchContainer input {
+    width: 60%;
+    border: none;
+    outline: none;
+    color: black;
+    font-size: 1.7rem;
+}
+#searchContainer #searchIcon {
+    width: 5%;
+    height: 50%;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFF;
+   
+}
+#searchContainer #searchIcon i {
+    color: black;
+    background-color: #FFFF;
+   
+}
+#searchClearIcons {
+    
+    background-color: #FFFF;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    width: 23%;
+    padding-top: 3px;
+}
+#searchClearIcons #clearBtn {
+    background-color: #FFFF;
+    font-size: 1rem;
+    height: 50%;
+   
+}
+#searchClearIcons #searchBtn {
+    background-color: #FFFF;
+    font-size: 1rem;
+    height: 50%;
+    
+}
+#searchClearIcons #clearBtn i {
+     height: 100%;
+    text-align: center;
+    background-color: #FFFF;
+    color: black;
+    font-size: 1.5rem;
+}
+#searchClearIcons #searchBtn i {
+    height: 50%;
+    background-color: #FFFF;
+    color: black;
+    font-size: 1.5rem;
+}
+.containertwoicons {
+    width: 100%;
+    padding: 0 4rem;
+    position: relative;
+}
+#tasksectionContainer {
+    width: 100%;
+    overflow: hidden;
+}
+.taskContainer {
+    width: 125%;
+    display: flex;
+    flex-direction: row;
+}
+#containerDelayList,
+#containerTodoList,
+#containerProgressList,
+#containerCompletedList,
+#signTodoList {
+    width: 25%;
+    border-radius: 2rem;
+    margin: 0 1rem;
+    height: 600px;
+    overflow: auto;
+    background-color: #FFFF;
+}
+#containerTodoList::-webkit-scrollbar,
+#containerDelayList::-webkit-scrollbar,
+#containerProgressList::-webkit-scrollbar,
+#containerCompletedList::-webkit-scrollbar,
+#signTodoList::-webkit-scrollbar{
+    width: 10px;
+}
+#containerTodoList::-webkit-scrollbar-track,
+#containerDelayList::-webkit-scrollbar-track,
+#containerProgressList::-webkit-scrollbar-track,
+#containerCompletedList::-webkit-scrollbar-track,
+#signTodoList::-webkit-scrollbar-track{
+ background:  #667EEA;
+ background-color: #FFFF;
+ border-radius: 5px;
+ margin-top: 30px;
+ margin-bottom: 30px;
+}
+#containerTodoList::-webkit-scrollbar-thumb,
+#containerDelayList::-webkit-scrollbar-thumb,
+#containerProgressList::-webkit-scrollbar-thumb,
+#containerCompletedList::-webkit-scrollbar-thumb,
+#signTodoList::-webkit-scrollbar-thumb{
+    background-color: rgb(215, 211, 211);
+    border-radius: 5px;
+    margin-right: -10px;
+}
+
+ol {
+    width: 100%;
+    background-color: #FFFF;
+}
+li {
+   box-sizing: border-box;
+    width: 100%;
+    list-style: none;
+    border: 2px solid rgb(210, 209, 209);
+    border-radius: 1.7rem;
+    padding: 0.5rem 1.3rem;
+    margin-bottom: 1rem;
+    background-color: #FFFF;
+       display: flex;
+    flex-direction: column;
+    word-break: break-all;
+    }
+#sliderRightBtn,
+#sliderLeftBtn {
+    width: 70px;
+    text-align: center;
+    background-color: #FFFF;
+}
+#sliderRightBtn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+#sliderLeftBtn {
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+#sliderRightBtn i,
+#sliderLeftBtn i {
+    background-color: #FFFF;
+    font-size: 1.5rem;
+}
+#tTaskHeading,
+ #pTaskHeading,
+  #bTaskHeading,
+  #eTaskHeading,
+   #dTaskHeading
+
+   {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.7rem;
+    width: 100%;
+}
+.todoiconContainer i,
+.progressIconContainer i,
+.completedIconContainer i,
+.signIconContainer i,
+.backlogIconContainer i {
+    display: none;
+}
+.todoListDetail {
+    display: flex;
+    flex-direction: column;
+   }
+.todoListDetail .todoTask,
+.progressListDetail .progressTask,
+.completedListDetail .completedTask,
+.signListDetail .signTask .backlogListDetail,
+.backlogTask {
+    color: black;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    background: #F8F9FA;
+
+}
+.todoListDetail .todoCreateDate,
+.progressListDetail .progressCreateDate,
+.completedListDetail .completedCreateDate,
+.signListDetail .signExpiryDate,
+.backlogListDetail,
+.backlogCreateDate {
+    color: #6c7786;
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+     background: #F8F9FA;
+
+}
+.todoListDetail .todoUpdateDate,
+.progressListDetail .progressUpdateDate,
+.completedListDetail .completedUpdateDate,
+.backlogListDetail .backlogupdateDate {
+    color: #6c7786;
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+    background: #F8F9FA;
+
+}
+.todoListDetail .todoDueDate,
+.progressListDetail .progressDueDate,
+.completedListDetail .completedDueDate,
+.backlogListDetail,
+.backlogdueDate,
+.signListDetail .signCompletedDate {
+    color: #8897a9;
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+    background: #F8F9FA;
+
+}
+.todoiconContainer,
+.progressIconContainer,
+.completedIconContainer,
+.signIconContainer,
+.backlogIconContainer {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    background-color: #F8F9FA;
+
+   
+
+}
+
+.todoiconContainer .todoMoveButton,
+.progressIconContainer .progressMoveButton,
+.completedIconContainer .completedMoveButton,
+.backlogIconContainer .BacklogMoveTodo,
+.backlogIconContainer .backlogEditButton,
+.progressIconContainer .progressEditButton,
+.progressIconContainer .progressMoveInTodo,
+.signIconContainer .signMoveInCompleted {
+    margin-right: 1.4rem;
+    color: #5D3FD3;
+}
+li i:hover {
+    font-size: 1.7rem;
+}
+.todoiconContainer .todoDeleteButton,
+.progressIconContainer .progressDeleteButton,
+.completedIconContainer .completedDeleteButton,
+.signIconContainer .signDeleteButton,
+.backlogIconContainer .delayDeleteButton {
+    color: maroon;
+    margin-right: 1rem;
+}
+.todoiconContainer .todoEditButton,
+.completedIconContainer .completedEditButton {
+    margin-right: 1.3rem;
+    color: #5D3FD3;
+}
+.todoiconContainer .todoBacklog,
+.progressIconContainer .progressBacklog,
+.completedIconContainer .comeMoveInProg {
+     margin-right: 1.3rem;
+    color: #5D3FD3;
+}
+#searchContainer #searchClearIcons i {
+    display: none;
+}
+#searchContainer:hover #searchClearIcons i {
+    display: flex;
+}
+
+.todoListItem:hover .todoiconContainer i,
+.progressListItem:hover .progressIconContainer i,
+.completedListItem:hover .completedIconContainer i,
+.signListItem:hover .signIconContainer i,
+.delayListItem:hover .backlogIconContainer i {
+    display: flex;
+}
+ol {
+    padding: 0 1rem;
+   
+
+}
+ol li{
+    background-color: #F8F9FA;
+   
+}
+
+ #clearAlltask{
+    width: 40%;
+    align-items: center;
+     background: linear-gradient(315deg, #667EEA 64.64%, #764BA2 135.36%);
+    color:#FFFF;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 50px 30%;
+ }
+ #clearAlltask:hover{
+    border: 3px solid red;
+     font-size: 1.7rem;
+    color:red;
+ }
+
+@media screen and (max-width : 770px) {
+   body{
+    width: 100%;
+   }
+     ol li:hover  ol li i{
+        display: flex;
+    }
+    ol {
+        padding: 0 1.4rem;
+    }
+      #leftButtonOfsixSlide {
+        position: absolute;
+        top: 85%;
+        right: 30%;
+    }
+    #tasksectionContainer {
+        width: 100%;
+        margin: 0;
+        margin: 8rem 0;
+    }
+    .taskContainer {
+        width: 500%;
+    }
+    #containerDelayList,
+    #containerTodoList,
+    #containerProgressList,
+    #containerCompletedList,
+    #signTodoList {
+        width: 20%;
+    }
+    #searchContainer input {
+        
+        width: 60%;
+    }
+    #searchClearIcons {
+        width: 25%;
+    }
+    #searchContainer #searchIcon {
+        width: 9%;
+         margin-left: 5px;
+    }
+    .containertwoicons {
+        position: none;
+    }
+    #sliderRightBtn {
+         border-radius: 9px;
+        padding: 5px 0;
+        width: 9%;
+        font-size: 1rem;
+        top: 2.5rem;
+        right: 40%;
+    }
+    #sliderLeftBtn {
+        border-radius: 9px;
+         padding: 5px 0;
+         width: 9%;
+         font-size: 1rem;
+      top: 2.5rem;
+        left: 40%;
+    }
+   #searchContainer{
+    
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+      }
+   
+    #searchInput::placeholder{
+       font-size: 1rem;
+                }
+     #searchIcon i{
+       font-size: 11px;
+         }
+    #searchClearIcons{
+         width: 20%;
+    }
+        #InputTaskContainer input::placeholder{
+        font-size: 1rem;
+    }
+    #searchContainer:hover #searchClearIcons i {
+    display: flex;
+    font-size: 15px;
+}
+   }
+@media screen and (max-width : 480px) {
+    body {
+        padding: 0;
+        margin: 0;
+    }
+     ol li:hover  ol li i{
+        display: flex;
+    }
+    #headingTaskContainer {
+        width: 100%;
+        height: 411px;
+        /* chenge */
+        padding: 0;
+        justify-content: space-between;
+    }
+    #smallScreenHeader {
+        height: 15rem;
+        width: 100%;
+        padding-top: 1.5rem;
+        background-color: #5D3FD3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    #InputTaskContainer {
+        padding: 0;
+        padding: 1.5rem;
+        width: 90%;
+        height: 310px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 6;
+    }
+    #InputTaskContainer input {
+        margin-bottom: 20;
+        background-color: #FFFF;
+    }
+    #InputTaskContainer input::placeholder{
+        font-size: 1rem;
+    }
+    #searchContainer {
+        width: 90%;
+           }
+     #searchContainer {
+        padding: 10px 0;
+     }
+    #sliderRightBtn,
+    #sliderLeftBtn {
+        display: none;
+    }
+    #allTaskBtn {
+        display: block;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+    }
+    #tasksectionContainer {
+        margin: 0;
+    }
+    #containerDelayList,
+    #containerTodoList,
+    #containerProgressList,
+    #containerCompletedList,
+    #signTodoList {
+        margin: 0 0.5rem;
+        width: 20%;
+       background-color: #FFFF;
+    }
+    #sliderRightBtn,
+    #sliderLeftBtn {
+        display: none;
+    }
+    .containertwoicons {
+        margin-top: 0;
+    }
+  
+    .taskContainer {
+        width: 500%;
+    }
+    main{
+        width: 100%;
+        margin-top:  7rem;
+        padding: 0;
+            }
+   .todoiconContainer .todoEditButton,
+.completedIconContainer .completedEditButton {
+    margin-right: 0rem;
+    color: #5D3FD3;
+}
+.todoiconContainer .todoBacklog,
+.progressIconContainer .progressBacklog,
+.completedIconContainer .comeMoveInProg {
+     margin-right: 0rem;
+    color: #5D3FD3;
+}
+#allTaskBtn #backBtn:hover,
+#allTaskBtn #todoBtn:hover,
+#allTaskBtn #proBtn:hover,
+#allTaskBtn #donBtn:hover,
+#allTaskBtn #expiryBtn:hover{
+font-size: 1.5rem;
+background-color: #FFFF;
+color:#5D3FD3;
+}
+  
+    
+}
