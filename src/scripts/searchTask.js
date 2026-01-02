@@ -1,5 +1,6 @@
 //this logic is for searching the  and clearing task.
 
+
 export function handleSearchListItem(searchInput,todoList, progressList, completedList, delayList, signList, todoListData, progressListData, completedListData, delayListData, signListData) 
 {
   let searchTaskvalue = searchInput.value.toLowerCase().trim();

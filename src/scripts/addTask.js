@@ -1,4 +1,4 @@
- export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delayListData,updateTodoTaskIndex,progressListData,updateprogressTaskIndex,updateDoneTaskIndex ,updateBacklogTaskIndex,todoListData,completedListData,createTodoList,createProgressList,createCompletedList,createDelayList,resetUpdateIndexes,handleClearTask)
+export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delayListData,updateTodoTaskIndex,progressListData,updateprogressTaskIndex,updateDoneTaskIndex ,updateBacklogTaskIndex,todoListData,completedListData,createTodoList,createProgressList,createCompletedList,createDelayList,resetUpdateIndexes,handleClearTask)
  
 {
   // 1. Get input values
@@ -18,12 +18,8 @@
   });
 
   // 3. CREATE NEW TODO TASK
-  if (
-    updateTodoTaskIndex === -1 &&
-    updateprogressTaskIndex === -1 &&
-    updateDoneTaskIndex === -1 &&
-    updateBacklogTaskIndex === -1
-  ) {
+  if ( updateTodoTaskIndex === -1 &&  updateprogressTaskIndex === -1 && updateDoneTaskIndex === -1 && updateBacklogTaskIndex === -1  ) 
+    {
 
     todoListData.push({
       title: inputboxText,
@@ -47,6 +43,7 @@
 
     localStorage.setItem("TODO", JSON.stringify(todoListData));
     createTodoList();
+    resetUpdateIndexes();
    handleClearTask();
   }
 
@@ -59,6 +56,7 @@
 
     localStorage.setItem("PROGRESS", JSON.stringify(progressListData));
     createProgressList();
+    resetUpdateIndexes();
     handleClearTask();
   }
 
@@ -71,6 +69,7 @@
 
     localStorage.setItem("COMPLETED", JSON.stringify(completedListData));
     createCompletedList();
+    resetUpdateIndexes();
     handleClearTask();
   }
 
@@ -87,9 +86,10 @@
   }
 
   // 8. Reset everything
-  resetUpdateIndexes();
+  
   taskInput.value = "";
   dueDate.value = "";
+  resetUpdateIndexes();
 }
 
   

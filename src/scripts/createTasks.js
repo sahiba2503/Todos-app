@@ -1,11 +1,12 @@
+
 // export {createTodoTask,createProgressTask ,createCompletedTask,createSignTasks,createBacklogTask}
- export function createTodoTask({title,createDate,update,due}){
+ export function createTodoTask(todoListData){
 return `<li class="todoListItem">
         <div class="todoListDetail">
-        <div class="todoTask">${title}</div>
-        <div class="todoCreateDate">Created: ${createDate}</div>
-         <div class="todoUpdateDate">Update: ${update}</div>
-        <div class="todoDueDate">Due: ${due}</div>
+        <div class="todoTask">${todoListData.title}</div>
+        <div class="todoCreateDate">Created: ${todoListData.createDate}</div>
+         <div class="todoUpdateDate">Update: ${todoListData.update}</div>
+        <div class="todoDueDate">Due: ${todoListData.due}</div>
         </div>
         <div class="todoiconContainer">
           <div class="todoEditButton"><img src="./public/images/update.svg" alt="update"></div>
@@ -16,14 +17,14 @@ return `<li class="todoListItem">
         </li> `
 };
  
- export function createCompletedTask ({title,createDate,update,due,completedDate}){
+ export function createCompletedTask (completedListData){
   return `<li class="completedListItem">
         <div class="completedListDetail">
-        <div class="completedTask">${title}</div>
-        <div class="completedCreateDate">Created: ${createDate}</div>
-           <div class="completedUpdateDate">Update: ${update}</div>
-         <div class="completedDueDate">due: ${due}</div>        
-        <div class="completedDueDate">Completed: ${completedDate}</div>
+        <div class="completedTask">${completedListData.title}</div>
+        <div class="completedCreateDate">Created: ${completedListData.createDate}</div>
+           <div class="completedUpdateDate">Update: ${completedListData.update}</div>
+         <div class="completedDueDate">due: ${completedListData.due}</div>        
+        <div class="completedDueDate">Completed: ${completedListData.completedDate}</div>
         </div>
         <div class="completedIconContainer">
          <div class="completedEditButton"> <img src="./public/images/update.svg" alt="update"></div>
@@ -34,13 +35,13 @@ return `<li class="todoListItem">
         </li>
         `
 }
- export function createBacklogTask ({ title="",createDate="",update="",due="" }){
+ export function createBacklogTask (createBacklogTask){
   return `<li class="delayListItem">
         <div class="backlogListDetail">
-        <div class="backlogTask">${title}</div>
-         <div class="backlogCreateDate">Created:${createDate}</div>
-          <div class="backlogupdateDate">update: ${update}</div>
-          <div class="backlogdueDate">Due: ${due}</div>
+        <div class="backlogTask">${createBacklogTask.title}</div>
+         <div class="backlogCreateDate">Created:${createBacklogTask.createDate}</div>
+          <div class="backlogupdateDate">update: ${createBacklogTask.update}</div>
+          <div class="backlogdueDate">Due: ${createBacklogTask.due}</div>
            </div>  
         <div class="backlogIconContainer"> 
           <div class="backlogEditButton"> <img src="./public/images/update.svg" alt="update"></div> 
@@ -51,13 +52,13 @@ return `<li class="todoListItem">
         `
       }
 
-export function createProgressTask ({title,createDate,update,due}){
+export function createProgressTask (progressListData){
   return `<li class="progressListItem">
          <div class="progressListDetail">
-         <div class="progressTask">${title}</div>
-         <div class="progressCreateDate">Created: ${createDate}</div>
-          <div class="progressUpdateDate">Update: ${update}</div>
-         <div class="progressDueDate">Due: ${due}</div>
+         <div class="progressTask">${progressListData.title}</div>
+         <div class="progressCreateDate">Created: ${progressListData.createDate}</div>
+          <div class="progressUpdateDate">Update: ${progressListData.update}</div>
+         <div class="progressDueDate">Due: ${progressListData.due}</div>
          </div>
          <div class="progressIconContainer">
           <div class="progressEditButton"><img src="./public/images/update.svg" alt="update"></div>
@@ -68,13 +69,13 @@ export function createProgressTask ({title,createDate,update,due}){
          </li>`
    
 }
- export function createSignTasks ({title,createDate,completedDate,signExpiry}){
+ export function createSignTasks (signListData){
   return `<li class="signListItem">
          <div class="signListDetail">
-         <div class="signTask">${title}</div>
-          <div class="signExpiryDate">Create: ${createDate}</div>
-          <div class="signCompletedDate">Completed: ${completedDate}</div>
-         <div class="signExpiryDate">Expiry: ${signExpiry}</div>
+         <div class="signTask">${signListData.title}</div>
+          <div class="signExpiryDate">Create: ${signListData.createDate}</div>
+          <div class="signCompletedDate">Completed: ${signListData.completedDate}</div>
+         <div class="signExpiryDate">Expiry: ${signListData.signExpiry}</div>
           </div>
          <div class="signIconContainer">
           <div class="signMoveInCompleted"><img src="./public/images/moveBack.svg" alt="update"></div>

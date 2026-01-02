@@ -511,10 +511,11 @@ ol li{
     font-size: 15px;
 }
    }
-@media screen and (max-width : 480px) {
+@media screen and (max-width : 680px) {
     body {
          padding: 0;
         margin: 0;
+        
             }
      ol li:hover  ol li i{
         display: flex;
@@ -594,6 +595,7 @@ ol li{
         width: 100%;
         margin-top:  7rem;
         padding: 0;
+        /* background-color: white; */
             }
    .todoiconContainer .todoEditButton,
 .completedIconContainer .completedEditButton {

@@ -1,3 +1,4 @@
+
 //this logic for slider
 var slider = document.querySelector(".taskContainer");
 

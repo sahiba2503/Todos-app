@@ -1,4 +1,4 @@
-
+import {taskInput,dueDate} from "./Todos.js";
 export function attachTodoBacklog(todoListItem, index, todoListData, delayListData ,createDelayList ,createTodoList) {
   todoListItem
     .querySelector(".todoBacklog")

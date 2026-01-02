@@ -1,3 +1,4 @@
+import {taskInput} from "./Todos.js";
 export function attachTodoProgress(todoListItem, index, todoListData, progressListData ,createTodoList ,createProgressList) {
   todoListItem
     .querySelector(".todoMoveButton")
