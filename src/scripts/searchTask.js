@@ -1,6 +1,6 @@
 //this logic is for searching the  and clearing task.
 
-
+import{createTodoList,createProgressList,createCompletedList,createDelayList,createSignList}from "./Todos.js";
 export function handleSearchListItem(searchInput,todoList, progressList, completedList, delayList, signList, todoListData, progressListData, completedListData, delayListData, signListData) 
 {
   let searchTaskvalue = searchInput.value.toLowerCase().trim();
@@ -63,3 +63,11 @@ export function handleSearchListItem(searchInput,todoList, progressList, complet
     }
   }
 }
+ export function  handleClearTask() {
+    createTodoList();
+  createProgressList();
+  createCompletedList();
+  createDelayList();
+  createSignList();
+ }
+ 

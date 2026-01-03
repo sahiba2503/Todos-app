@@ -42,17 +42,18 @@
 // btn.addEventListener("click", getFacts);
 //we can use these api link. fetch("https://formatjsononline.com/api/users"),fetch("https://jsonplaceholder.typicode.com/users")
 
- fetch("https://www.boredapi.com/api/activity")
-   .then((response) => {
-    return response.json();
-  })
-    .then((data) => {
-    console.log(data);
+//  fetch("https://www.boredapi.com/api/activity")
+//    .then((response) => {
+//     return response.json();
+//   })
+//     .then((data) => {
+//     console.log(data);
      
-  })
-    .catch(() => {
-    console.log(" some error");
-  });
+//   })
+//     .catch(() => {
+//     console.log(" some error");
+//   });
+
 
 
 

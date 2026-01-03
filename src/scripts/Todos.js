@@ -29,25 +29,7 @@ import {
 } from "./deleteTask.js";
 
 import { addButtonTask } from "./addTask.js";
-import { handleSearchListItem } from "./searchTask.js";
-
- export let taskInput = document.querySelector("#taskInput");
- export let addBtn = document.querySelector("#addBtn");
- export let dueDate = document.querySelector("#dueDate");
-
- export let todoList = document.querySelector("#todoList");
- let progressList = document.querySelector("#progressList");
- export let completedList = document.querySelector("#completedList");
- export let delayList = document.querySelector("#delayList");
- export let signList = document.querySelector("#signList");
-
-export let searchBtn = document.querySelector("#searchBtn");
-
- export let todoListData = [];
-export let progressListData = [];
- export let completedListData = [];
- export let delayListData = [];
- export let signListData = [];
+import { handleSearchListItem ,handleClearTask} from "./searchTask.js";
 
 //these variable is used for updating the task when variable's value is -1 it means we are not updating otherwise updating
  export let updateTodoTaskIndex = -1;
@@ -61,9 +43,35 @@ export let progressListData = [];
   updateDoneTaskIndex = -1;
   updateBacklogTaskIndex = -1;
 }
+  export let taskInput = document.querySelector("#taskInput");
+ export let addBtn = document.querySelector("#addBtn");
+ export let dueDate = document.querySelector("#dueDate");
+
+ export let todoList = document.querySelector("#todoList");
+ export let progressList = document.querySelector("#progressList");
+ export let completedList = document.querySelector("#completedList");
+ export let delayList = document.querySelector("#delayList");
+ export let signList = document.querySelector("#signList");
+
+export let searchBtn = document.querySelector("#searchBtn");
+
+ export let todoListData = [];
+export let progressListData = [];
+ export let completedListData = [];
+ export let delayListData = [];
+ export let signListData = [];
 //create a new task when i click the add Task button
 window.addEventListener("DOMContentLoaded", () => {
-  reloadAlltask();
+  reloadAlltask(todoListData,
+  progressListData,
+  completedListData,
+  delayListData,
+  signListData,
+  createTodoList,
+  createProgressList,
+  createCompletedList,
+  createDelayList,
+  createSignList);
   runslider();
 });
 addBtn.addEventListener("click", () => {
@@ -180,6 +188,7 @@ export function createProgressList() {
         updateprogressTaskIndex = index;
          addBtn.innerText = "update the task";
       });
+      
   }
 }
 export function createCompletedList() {
@@ -220,14 +229,8 @@ export function createCompletedList() {
       createSignList
     );
 
-    completedListItem[index]
-      .querySelector(".completedEditButton")
-      .addEventListener("click", function () {
-        taskInput.value = completedListData[index].title;
-        dueDate.value = completedListData[index].due;
-        updateDoneTaskIndex = index;
-         addBtn.innerText = "update the task";
-      });
+    
+    
   }
 }
 export function createSignList() {
@@ -313,12 +316,9 @@ searchBtn.addEventListener("click", () => {
     signListData
   );
 });
-clearBtn.addEventListener("click", handleClearTask);
-function handleClearTask() {
-  searchInput.value = "";
-  createTodoList();
-  createProgressList();
-  createCompletedList();
-  createDelayList();
-  createSignList();
-}
+clearBtn.addEventListener("click", ()=>{
+searchInput.value = "";
+handleClearTask();
+  
+});
+

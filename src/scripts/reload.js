@@ -1,5 +1,6 @@
-import {
-  todoListData,
+
+// This function loads tasks from localStorage and renders them
+export function reloadAlltask( todoListData,
   progressListData,
   completedListData,
   delayListData,
@@ -8,12 +9,7 @@ import {
   createProgressList,
   createCompletedList,
   createDelayList,
-  createSignList
-} from "./Todos.js";
-
-
-// This function loads tasks from localStorage and renders them
-export function reloadAlltask( ) {
+  createSignList) {
   // Load TODO tasks
   let storedTodo = localStorage.getItem("TODO");
   if (storedTodo) {
@@ -63,7 +59,6 @@ export function reloadAlltask( ) {
       delayListData.push(backlog[i]);
     }
   }
-
   // Render all lists
   createTodoList();
   createProgressList();
