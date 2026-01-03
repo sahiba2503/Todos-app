@@ -87,7 +87,8 @@ addBtn.addEventListener("click", () => {
     createCompletedList,
     createDelayList,
     resetUpdateIndexes,
-    handleClearTask
+    handleClearTask,
+    addBtn
   );
 });
 export function createTodoList() {
@@ -125,13 +126,12 @@ export function createTodoList() {
       dueDate
     );
 
-    todoListItem[i]
-      .querySelector(".todoEditButton")
-      .addEventListener("click", todoEditList);
+    todoListItem[i].querySelector(".todoEditButton").addEventListener("click", todoEditList);
     function todoEditList() {
       taskInput.value = todoListData[i].title;
       dueDate.value = todoListData[i].due;
       updateTodoTaskIndex = i;
+      addBtn.innerText = "update the task";
     }
   }
 }
@@ -178,6 +178,7 @@ export function createProgressList() {
         taskInput.value = progressListData[index].title;
         dueDate.value = progressListData[index].due;
         updateprogressTaskIndex = index;
+         addBtn.innerText = "update the task";
       });
   }
 }
@@ -225,6 +226,7 @@ export function createCompletedList() {
         taskInput.value = completedListData[index].title;
         dueDate.value = completedListData[index].due;
         updateDoneTaskIndex = index;
+         addBtn.innerText = "update the task";
       });
   }
 }
@@ -291,6 +293,7 @@ export function createDelayList() {
         taskInput.value = delayListData[index].title;
         dueDate.value = delayListData[index].due;
         updateBacklogTaskIndex = index;
+         addBtn.innerText = "update the task";
       });
   }
 }

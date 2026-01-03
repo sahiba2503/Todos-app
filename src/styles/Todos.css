@@ -178,11 +178,13 @@ input::placeholder{
     position: relative;
 }
 #tasksectionContainer {
+    height: 600px;
     width: 100%;
     overflow: hidden;
 }
 .taskContainer {
     width: 125%;
+    height: 100%;
     display: flex;
     flex-direction: row;
 }
@@ -191,36 +193,39 @@ input::placeholder{
 #containerProgressList,
 #containerCompletedList,
 #signTodoList {
-    width: 25%;
+    border: 0.5px solid rgb(125, 125, 125);
+     width: 25%;
     border-radius: 2rem;
     margin: 0 1rem;
-    height: 600px;
-    overflow: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* overflow: auto; */
     background-color: #FFFF;
 }
-#containerTodoList::-webkit-scrollbar,
-#containerDelayList::-webkit-scrollbar,
-#containerProgressList::-webkit-scrollbar,
-#containerCompletedList::-webkit-scrollbar,
-#signTodoList::-webkit-scrollbar{
+ol::-webkit-scrollbar,
+ol::-webkit-scrollbar,
+ol::-webkit-scrollbar,
+ol::-webkit-scrollbar,
+ol::-webkit-scrollbar{
     width: 10px;
 }
-#containerTodoList::-webkit-scrollbar-track,
-#containerDelayList::-webkit-scrollbar-track,
-#containerProgressList::-webkit-scrollbar-track,
-#containerCompletedList::-webkit-scrollbar-track,
-#signTodoList::-webkit-scrollbar-track{
+ol::-webkit-scrollbar-track,
+ol::-webkit-scrollbar-track,
+ol::-webkit-scrollbar-track,
+ol::-webkit-scrollbar-track,
+ol::-webkit-scrollbar-track{
  background:  #667EEA;
  background-color: #FFFF;
  border-radius: 5px;
- margin-top: 30px;
- margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px; 
 }
-#containerTodoList::-webkit-scrollbar-thumb,
-#containerDelayList::-webkit-scrollbar-thumb,
-#containerProgressList::-webkit-scrollbar-thumb,
-#containerCompletedList::-webkit-scrollbar-thumb,
-#signTodoList::-webkit-scrollbar-thumb{
+ol::-webkit-scrollbar-thumb,
+ol::-webkit-scrollbar-thumb,
+ol::-webkit-scrollbar-thumb,
+ol::-webkit-scrollbar-thumb,
+ol::-webkit-scrollbar-thumb{
     background-color: rgb(215, 211, 211);
     border-radius: 5px;
     margin-right: -10px;
@@ -271,10 +276,11 @@ li {
    #dTaskHeading
 
    {
-    display: flex;
+      display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 1.7rem;
+    padding: 1.7rem ;
+    height: 13%;
     width: 100%;
 }
 .todoiconContainer img,
@@ -400,9 +406,12 @@ li i:hover {
     display: flex;
 }
 ol {
-    padding: 0 1rem;
-   
-
+    border-top: 0.5px solid rgb(222, 215, 215);
+    padding: 1rem 1rem 0 1rem;
+   height:85%;
+   overflow: auto;
+   border-bottom-left-radius: 30px;
+   border-bottom-right-radius: 30px;
 }
 ol li{
     background-color: #F8F9FA;

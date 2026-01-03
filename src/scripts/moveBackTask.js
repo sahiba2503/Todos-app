@@ -6,8 +6,8 @@ export function attachTodoBacklog(todoListItem, index, todoListData, delayListDa
 
       delayListData.push({
         title: todoListData[index].title,
-        createDate: todoListData[index].createDate,
-        update: "",
+        create: todoListData[index].create,
+        update: todoListData[index].update,
         due: todoListData[index].due,
       });
 
@@ -27,8 +27,8 @@ export function attachProgressToTodo( progressListItem,index,progressListData, t
     .addEventListener("click", function () {
       todoListData.push({
         title: progressListData[index].title,
-        createDate: progressListData[index].createDate,
-        update: "",
+        create: progressListData[index].create,
+        update: progressListData[index].update,
         due: progressListData[index].due,
       });
 
@@ -57,9 +57,9 @@ export function attachCompletedToProgress(
     .addEventListener("click", function () {
       progressListData.push({
         title: completedListData[index].title,
-        createDate: completedListData[index].createDate,
+        create: completedListData[index].create,
         compledDate: completedListData[index].compledDate,
-        update: "",
+        update: completedListData[index].update,
         due: completedListData[index].due,
       });
 
@@ -89,14 +89,10 @@ export function attachSignToCompleted(
     .addEventListener("click", function () {
       completedListData.push({
         title: signListData[index].title,
-        createDate: signListData[index].createDate,
-        update: "",
-        compledDate: new Date().toLocaleString("en-IN", {
-          weekday: "long",
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        }),
+        create: signListData[index].create,
+        update: signListData[index].update,
+        due:signListData[index].due,
+        completed: signListData[index].completed,
       });
 
       signListData.splice(index, 1);

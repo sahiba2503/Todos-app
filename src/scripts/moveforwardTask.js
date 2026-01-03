@@ -1,4 +1,5 @@
 import {taskInput} from "./Todos.js";
+let compledDate;
 export function attachTodoProgress(todoListItem, index, todoListData, progressListData ,createTodoList ,createProgressList) {
   todoListItem
     .querySelector(".todoMoveButton")
@@ -6,9 +7,10 @@ export function attachTodoProgress(todoListItem, index, todoListData, progressLi
 
       progressListData.push({
         title: todoListData[index].title,
-        createDate: todoListData[index].createDate,
-        update: "",
+        create: todoListData[index].create,
+        update: todoListData[index].update,
         due: todoListData[index].due,
+        completed: "",
       });
 
       todoListData.splice(index, 1);
@@ -30,18 +32,17 @@ export function attachProgressToCompleted(
 ) {
   progressListItem
     .querySelector(".progressMoveButton")
-    .addEventListener("click", function () {
+    .addEventListener("click", function () 
+    {
+        compledDate =  new Date().toLocaleString("en-IN", { weekday: "long",year: "numeric",month: "short",day: "numeric"})
+        progressListData[index].completed = compledDate;
+
       completedListData.push({
         title: progressListData[index].title,
-        createDate: progressListData[index].createDate,
-        compledDate: new Date().toLocaleString("en-IN", {
-          weekday: "long",
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        }),
-        update: "",
+        create: progressListData[index].create,      
+        update: progressListData[index].update,
         due: progressListData[index].due,
+        completed: progressListData[index].completed,
       });
 
       progressListData.splice(index, 1);
@@ -69,19 +70,9 @@ export function attachCompletedToSign(
     .addEventListener("click", function () {
       signListData.push({
         title: completedListData[index].title,
-        createDate: completedListData[index].createDate,
-        compledDate: new Date().toLocaleString("en-IN", {
-          weekday: "long",
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        }),
-        expiry: new Date().toLocaleString("en-IN", {
-          weekday: "long",
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        }),
+        create: completedListData[index].create,
+        update: completedListData[index].update,
+        completed: completedListData[index].completed,
         due: completedListData[index].due,
       });
 
@@ -110,7 +101,7 @@ export function attachBacklogToTodo(
     .addEventListener("click", function () {
       todoListData.push({
         title: delayListData[index].title,
-        createDate: delayListData[index].createDate,
+        create: delayListData[index].create,
         update: delayListData[index].update,
         due: new Date().toLocaleString("en-IN", {
           weekday: "long",
