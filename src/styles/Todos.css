@@ -16,9 +16,7 @@ html{
 }
 
 #headingTaskContainer {
-    border: 2px solid red;
     width: 100%;
-    height: 30vh;
     display: flex;
     gap: 24px;
     flex-direction: column;
@@ -43,7 +41,10 @@ html{
     border-radius: 9px;
     color: #FFFF;
     background-color: #7358e1;
-    font-size: 1rem;
+    font-size: 0.7rem;
+}
+#proBtn{
+    font-size: 0.5rem;
 }
 #allTaskBtn {
     display: none;
@@ -68,19 +69,18 @@ body i:hover {
    box-shadow: 0px 2px 15px 1px rgb(182, 176, 176);
     border-radius: 15px;
     width: 46%;
-    height: 50%;
     padding: 20px;
     background-color: #FFFF;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 #InputTaskContainer input,
 button {
     border: 2px solid rgb(210, 209, 209);
     width: 100%;
-    padding: 1.3%;
+    padding: 1rem;
      border-radius: 1rem;
 }
 #InputTaskContainer input {
@@ -116,7 +116,7 @@ input::placeholder{
     border-radius: 1.3rem;
     margin-top: 1.5rem;
     width: 46%;
-   height: 13%;
+    height: 50px;
     color: #FFFF;
     display: flex;
     flex-direction: row;
@@ -187,7 +187,8 @@ input::placeholder{
     position: relative;
 }
 #tasksectionContainer {
-    height: 600px;
+    /* height: 70%; */
+    height: 79vh;
     width: 100%;
     overflow: hidden;
 }
@@ -442,6 +443,7 @@ ol li{
 @media screen and (max-width : 770px) {
    body{
     width: 100%;
+    height: 1000px;
    }
      ol li:hover  ol li i{
         display: flex;
@@ -449,19 +451,42 @@ ol li{
     ol {
         padding: 0 1.4rem;
     }
-      #leftButtonOfsixSlide {
+    #headingTaskContainer {
+        border: 2px solid red;
+        height: 35%;
+    }
+    #InputTaskContainer{
+        height: 50%;
+      width: 85%;
+    }
+    h1{
+        height: 13%;
+    }
+     #InputTaskContainer input, button{
+        height: 30%;
+        border-radius: 0.5rem;
+        padding: 0 1rem;
+     }
+      /* #leftButtonOfsixSlide {
         position: absolute;
         top: 85%;
         right: 30%;
-    }
+    } */
     #tasksectionContainer {
         width: 100%;
         margin: 0;
-        margin: 8rem 0;
+        height: 620px;
+        /* height: 56%; */
+        /* margin: 4rem 0; */
+       /* height: ; */
     }
     .taskContainer {
+        border: 2px solid green;
         width: 500%;
-    }
+        /* height: 100%; */
+           padding-top: 60px;
+        
+          }
     #containerDelayList,
     #containerTodoList,
     #containerProgressList,
@@ -469,9 +494,9 @@ ol li{
     #signTodoList {
         width: 20%;
     }
-    #searchContainer input {
-        
+    #searchContainer input {        
         width: 60%;
+       
     }
     #searchClearIcons {
         width: 25%;
@@ -482,25 +507,31 @@ ol li{
     }
     .containertwoicons {
         position: none;
+        margin: 0;
+        padding: 0;
+        
     }
     #sliderRightBtn {
          border-radius: 9px;
         padding: 5px 0;
         width: 9%;
+        height: 50px;
         font-size: 1rem;
-        top: 2.5rem;
+        top: 0;
         right: 40%;
     }
     #sliderLeftBtn {
         border-radius: 9px;
          padding: 5px 0;
          width: 9%;
+         height: 50px;
          font-size: 1rem;
-      top: 2.5rem;
+      top: 0;
         left: 40%;
     }
    #searchContainer{
-    
+    border-radius: 1rem;
+   width: 85%;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -527,12 +558,12 @@ ol li{
 }
    }
    /* 480 */
-@media screen and (max-width : 780px) {
+@media screen and (max-width : 480px) {
     body {
          padding: 0;
         margin: 0;
         /* background-color: red; */
-        height: 100%;
+        height: 1020px;
         padding-bottom: 20px;
           /* background: linear-gradient(315deg, #f4f5f8 64.64%, #f3f0f5 135.36%);
            background: linear-gradient(#FFFF); */
@@ -547,22 +578,28 @@ ol li{
     #headingTaskContainer {
          width: 100%;
         /* height: 450px; */
+        height: 40%;
         padding: 0;
+        gap:15px;
         justify-content: space-between;
+        
     }
     #smallScreenHeader {
-        height: 15rem;
+       border: 2px solid green;
         width: 100%;
-        padding-top: 1.5rem;
+        height: 120px;
         background-color: #5D3FD3;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+       align-items: center;
+       justify-content: space-between;
+       gap: 24px;
     }
     #InputTaskContainer {
-        padding: 0;
-        padding: 1.5rem;
+        border: 2px solid blue;
+         padding: 1rem;
         width: 90%;
+        height: 197px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -571,25 +608,45 @@ ol li{
     #InputTaskContainer input {
         margin-bottom: 20;
         background-color: #FFFF;
+        border-radius: 0.5rem;
+        padding: 0;
+        padding:  0 0.5rem;
+       
+    }
+    #InputTaskContainer button{
+          border-radius: 0.5rem;
     }
     #InputTaskContainer input::placeholder{
         font-size: 1rem;
     }
     #searchContainer {
         width: 90%;
+        height: 50px;
+        padding: 14px 16px;
            }
      #searchContainer {
         padding: 10px 0;
+     }
+     .taskContainer{
+        margin-top:0 ;
      }
     #sliderRightBtn,
     #sliderLeftBtn {
         display: none;
     }
+    h1{
+        border: 2px solid black;
+        height: 55px;
+        font-size: 2rem;
+        text-align: center;
+    }
     #allTaskBtn {  
-        width: 100%;      
+        border: 2px solid yellow;
+        width: 100%;  
+        height: 55px;    
         display: flex;
         margin-bottom: 1rem;
-        font-size: 1rem;
+        
     }
     #tasksectionContainer {
         margin: 0;
@@ -613,11 +670,13 @@ ol li{
   
     .taskContainer {
         width: 500%;
+        padding-top: 20px;
     }
     main{
         width: 100%;
-        margin-top:  7rem;
+        margin-top:0;
         padding: 0;
+        /* height: 850px; */
         /* background-color: white; */
             }
    .todoiconContainer .todoEditButton,
@@ -633,14 +692,15 @@ ol li{
 }
 #allTaskBtn #backBtn:hover,
 #allTaskBtn #todoBtn:hover,
-#allTaskBtn #proBtn:hover,
 #allTaskBtn #donBtn:hover,
 #allTaskBtn #expiryBtn:hover{
-font-size: 1.5rem;
 background-color: #FFFF;
 color:#5D3FD3;
 }
+#allTaskBtn #proBtn:hover{
+    background-color: #FFFF;
+color:#5D3FD3;
+}
 
-  
     
 }
