@@ -1,6 +1,4 @@
 
-// export {createTodoTask,createProgressTask ,createCompletedTask,createSignTasks,createBacklogTask}
-
  export function createTodoTask(todoListData){
 return `<li class="todoListItem">
         <div class="todoListDetail">

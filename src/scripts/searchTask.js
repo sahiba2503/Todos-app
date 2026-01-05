@@ -71,3 +71,14 @@ export function handleSearchListItem(searchInput,todoList, progressList, complet
   createSignList();
  }
  
+  // input.addEventListener("keydown", function(event) {
+  //         if (event.key === "Enter") 
+  //         {           
+  //           const value = input.value.trim();
+  //           if (value !== "") {
+  //              firstarr.push(value);
+  //               input.value ="";
+  //               createlist(firstarr);               
+  //           }
+  //       }               
+  //   });

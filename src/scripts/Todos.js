@@ -1,5 +1,5 @@
 import { reloadAlltask } from "./reload.js";
-import { runslider } from "./slider.js";
+import {} from "./slider.js";
 import {
   createTodoTask,
   createProgressTask,
@@ -72,7 +72,6 @@ window.addEventListener("DOMContentLoaded", () => {
   createCompletedList,
   createDelayList,
   createSignList);
-  runslider();
 });
 addBtn.addEventListener("click", () => {
   var inputboxText = taskInput.value.trim();
@@ -300,6 +299,18 @@ export function createDelayList() {
       });
   }
 }
+
+ // input.addEventListener("keydown", function(event) {
+  //         if (event.key === "Enter") 
+  //         {           
+  //           const value = input.value.trim();
+  //           if (value !== "") {
+  //              firstarr.push(value);
+  //               input.value ="";
+  //               createlist(firstarr);               
+  //           }
+  //       }               
+  //   });
 searchBtn.addEventListener("click", () => {
   var searchInput = document.querySelector("#searchInput");
   handleSearchListItem(

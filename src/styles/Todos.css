@@ -16,7 +16,9 @@ html{
 }
 
 #headingTaskContainer {
+    border: 2px solid red;
     width: 100%;
+    height: 30vh;
     display: flex;
     gap: 24px;
     flex-direction: column;
@@ -66,15 +68,19 @@ body i:hover {
    box-shadow: 0px 2px 15px 1px rgb(182, 176, 176);
     border-radius: 15px;
     width: 46%;
+    height: 50%;
     padding: 20px;
     background-color: #FFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #InputTaskContainer input,
 button {
     border: 2px solid rgb(210, 209, 209);
     width: 100%;
-    padding: 1rem;
+    padding: 1.3%;
      border-radius: 1rem;
 }
 #InputTaskContainer input {
@@ -110,7 +116,7 @@ input::placeholder{
     border-radius: 1.3rem;
     margin-top: 1.5rem;
     width: 46%;
-    height: 50px;
+   height: 13%;
     color: #FFFF;
     display: flex;
     flex-direction: row;
@@ -218,7 +224,7 @@ ol::-webkit-scrollbar-track,
 ol::-webkit-scrollbar-track,
 ol::-webkit-scrollbar-track,
 ol::-webkit-scrollbar-track{
- background-color: rgb(215, 211, 211);
+ background-color:#FFFF;
   border-radius: 5px;
   margin-bottom: 20px; 
 }
@@ -227,7 +233,7 @@ ol::-webkit-scrollbar-thumb,
 ol::-webkit-scrollbar-thumb,
 ol::-webkit-scrollbar-thumb,
 ol::-webkit-scrollbar-thumb{
-    background-color:#FFFF;
+    background-color: rgb(215, 211, 211);
     border-radius: 5px;
     margin-right: -10px;
 }
@@ -407,8 +413,7 @@ li i:hover {
     display: flex;
 }
 ol {
-    border-top: 5px solid rgb(234, 218, 218);
-    padding: 1rem 1rem 0 1rem;
+   padding: 1rem 1rem 0 1rem;
    height:85%;
    overflow: auto;
    border-bottom-left-radius: 30px;
@@ -521,7 +526,8 @@ ol li{
     font-size: 15px;
 }
    }
-@media screen and (max-width : 680px) {
+   /* 480 */
+@media screen and (max-width : 780px) {
     body {
          padding: 0;
         margin: 0;

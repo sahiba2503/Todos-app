@@ -15,8 +15,7 @@ var rightBtn = document.querySelector("#sliderRightBtn");
   var lengthTaskBox = document.querySelectorAll(".taskBox").length;
 
   //we have implement login on left button all posible condition and then write code for right btn.
-  export function runslider(){
-leftBtn.addEventListener("click", function () {
+ leftBtn.addEventListener("click", function () {
  //it is for desktop left button
   if (window.innerWidth > 900) {
     if (index <= 0) {
@@ -78,4 +77,4 @@ expiryBtn.addEventListener("click", function () {
     slider.style.transform = "translateX(-80%)";
 });
 //  export {slider,leftBtn,rightBtn,backBtn,todoBtn,proBtn,doneBtn,expiryBtn,index, STEP};
-  }
+  
