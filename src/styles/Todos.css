@@ -6,7 +6,7 @@
 }
 
 body {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     background: linear-gradient(315deg, #667EEA 64.64%, #764BA2 135.36%);
     width: 100vw;
     height: 100vh;
@@ -187,13 +187,12 @@ input::placeholder{
     position: relative;
 }
 #tasksectionContainer {
-    /* height: 70%; */
     height: 79vh;
     width: 100%;
     overflow: hidden;
 }
 .taskContainer {
-     width: 125%;
+    width: 125%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -435,7 +434,7 @@ ol li{
     margin: 50px 30%;
  }
  #clearAlltask:hover{
-    border: 3px solid red;
+    /* border: 3px solid red; */
      font-size: 1.7rem;
     color:red;
  }
@@ -452,7 +451,7 @@ ol li{
         padding: 0 1.4rem;
     }
     #headingTaskContainer {
-        border: 2px solid red;
+        /* border: 2px solid red; */
         height: 35%;
     }
     #InputTaskContainer{
@@ -467,24 +466,15 @@ ol li{
         border-radius: 0.5rem;
         padding: 0 1rem;
      }
-      /* #leftButtonOfsixSlide {
-        position: absolute;
-        top: 85%;
-        right: 30%;
-    } */
-    #tasksectionContainer {
+        #tasksectionContainer {
         width: 100%;
         margin: 0;
         height: 620px;
-        /* height: 56%; */
-        /* margin: 4rem 0; */
-       /* height: ; */
-    }
+          }
     .taskContainer {
-        border: 2px solid green;
+        /* border: 2px solid green; */
         width: 500%;
-        /* height: 100%; */
-           padding-top: 60px;
+            padding-top: 60px;
         
           }
     #containerDelayList,
@@ -562,12 +552,9 @@ ol li{
     body {
          padding: 0;
         margin: 0;
-        /* background-color: red; */
         height: 1020px;
         padding-bottom: 20px;
-          /* background: linear-gradient(315deg, #f4f5f8 64.64%, #f3f0f5 135.36%);
-           background: linear-gradient(#FFFF); */
-           background: #FFFF;
+         background: #FFFF;
             }
      ol li:hover  ol li i{
         display: flex;
@@ -577,15 +564,14 @@ ol li{
     }
     #headingTaskContainer {
          width: 100%;
-        /* height: 450px; */
-        height: 40%;
+         height: 40%;
         padding: 0;
         gap:15px;
         justify-content: space-between;
         
     }
     #smallScreenHeader {
-       border: 2px solid green;
+       /* border: 2px solid green; */
         width: 100%;
         height: 120px;
         background-color: #5D3FD3;
@@ -596,7 +582,7 @@ ol li{
        gap: 24px;
     }
     #InputTaskContainer {
-        border: 2px solid blue;
+        /* border: 2px solid blue; */
          padding: 1rem;
         width: 90%;
         height: 197px;
@@ -635,13 +621,13 @@ ol li{
         display: none;
     }
     h1{
-        border: 2px solid black;
+        /* border: 2px solid black; */
         height: 55px;
         font-size: 2rem;
         text-align: center;
     }
     #allTaskBtn {  
-        border: 2px solid yellow;
+        /* border: 2px solid yellow; */
         width: 100%;  
         height: 55px;    
         display: flex;
@@ -673,7 +659,7 @@ ol li{
         padding-top: 20px;
     }
     main{
-        width: 100%;
+          width: 100%;
         margin-top:0;
         padding: 0;
         /* height: 850px; */
@@ -704,3 +690,4 @@ color:#5D3FD3;
 
     
 }
+/* ///// */

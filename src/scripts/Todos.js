@@ -1,5 +1,5 @@
+import{ } from"./slider.js";
 import { reloadAlltask } from "./reload.js";
-import {} from "./slider.js";
 import {
   createTodoTask,
   createProgressTask,
@@ -71,7 +71,9 @@ window.addEventListener("DOMContentLoaded", () => {
   createProgressList,
   createCompletedList,
   createDelayList,
-  createSignList);
+  createSignList
+  
+  );
 });
 addBtn.addEventListener("click", () => {
   var inputboxText = taskInput.value.trim();
