@@ -97,7 +97,8 @@ addBtn.addEventListener("click", () => {
     createDelayList,
     resetUpdateIndexes,
     handleClearTask,
-    addBtn
+    addBtn,
+    clearSearchInput
   );
 });
 export function createTodoList() {
@@ -229,7 +230,16 @@ export function createCompletedList() {
       createCompletedList,
       createSignList
     );
-
+      
+     completedListItem[index]
+      .querySelector(".completedEditButton")
+      .addEventListener("click", function () {
+        taskInput.value = completedListData[index].title;
+        dueDate.value = completedListData[index].due;
+        updateDoneTaskIndex  = index;
+         addBtn.innerText = "update the task";
+      });
+      
     
     
   }
@@ -301,20 +311,8 @@ export function createDelayList() {
       });
   }
 }
-
- // input.addEventListener("keydown", function(event) {
-  //         if (event.key === "Enter") 
-  //         {           
-  //           const value = input.value.trim();
-  //           if (value !== "") {
-  //              firstarr.push(value);
-  //               input.value ="";
-  //               createlist(firstarr);               
-  //           }
-  //       }               
-  //   });
 searchBtn.addEventListener("click", () => {
-  var searchInput = document.querySelector("#searchInput");
+ var searchInput = document.querySelector("#searchInput");
   handleSearchListItem(
     searchInput,
     todoList,
@@ -329,9 +327,10 @@ searchBtn.addEventListener("click", () => {
     signListData
   );
 });
-clearBtn.addEventListener("click", ()=>{
+clearBtn.addEventListener("click", clearSearchInput);
+function clearSearchInput(){
 searchInput.value = "";
 handleClearTask();
   
-});
+}
 

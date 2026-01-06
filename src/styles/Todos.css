@@ -7,7 +7,7 @@
 
 body {
     /* border: 2px solid black; */
-    background: linear-gradient(315deg, #667EEA 64.64%, #764BA2 135.36%);
+    background-color: #667EEA ;
     width: 100vw;
     height: 100vh;
    }
@@ -103,7 +103,7 @@ input::placeholder{
     color: black;
 }
 #InputTaskContainer #addBtn {
-    background: linear-gradient(315deg, #667EEA 64.64%, #764BA2 135.36%);
+    background-color:#667EEA ;
     font-size: 1.1rem;
     border: none;
     color: #FFFF;
@@ -427,7 +427,7 @@ ol li{
  #clearAlltask{
     width: 40%;
     align-items: center;
-     background: linear-gradient(315deg, #667EEA 64.64%, #764BA2 135.36%);
+    background-color:#667EEA  ;
     color:#FFFF;
     font-weight: 700;
     font-size: 1rem;

@@ -1,5 +1,5 @@
 
-export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delayListData,updateTodoTaskIndex,progressListData,updateprogressTaskIndex,updateDoneTaskIndex ,updateBacklogTaskIndex,todoListData,completedListData,createTodoList,createProgressList,createCompletedList,createDelayList,resetUpdateIndexes,handleClearTask, addBtn)
+export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delayListData,updateTodoTaskIndex,progressListData,updateprogressTaskIndex,updateDoneTaskIndex ,updateBacklogTaskIndex,todoListData,completedListData,createTodoList,createProgressList,createCompletedList,createDelayList,resetUpdateIndexes,handleClearTask, addBtn,clearSearchInput)
  
 {
   // 1. Get input values
@@ -32,8 +32,7 @@ export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delay
     localStorage.setItem("TODO", JSON.stringify(todoListData));
     handleClearTask();
     createTodoList();
-     
-  }
+     }
 
   // 4. UPDATE TODO TASK
   else if (updateTodoTaskIndex !== -1) {
@@ -52,6 +51,7 @@ export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delay
     resetUpdateIndexes();
    handleClearTask();
     addBtn.innerText="Add Task";
+    clearSearchInput();
   }
 
   // 5. UPDATE PROGRESS TASK
@@ -71,10 +71,12 @@ export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delay
     resetUpdateIndexes();
     handleClearTask();
     addBtn.innerText="Add Task";
+    clearSearchInput();
   }
 
   // 6. UPDATE COMPLETED TASK
   else if (updateDoneTaskIndex !== -1) {
+    alert("yes calling fun");
  var updateDate = new Date().toLocaleString("en-IN", {
     weekday: "long",
     year: "numeric",
@@ -90,6 +92,7 @@ export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delay
     resetUpdateIndexes();
     handleClearTask();
     addBtn.innerText="Add Task";
+    clearSearchInput();
   }
 
   // 7. UPDATE BACKLOG TASK
@@ -109,7 +112,7 @@ export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delay
     handleClearTask();
     resetUpdateIndexes();
     addBtn.innerText="Add Task";
-   
+   clearSearchInput();
   }
   
   taskInput.value = "";
