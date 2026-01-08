@@ -1,4 +1,4 @@
-import{ } from"./slider.js";
+// import{ } from"./slider.js";
 import { reloadAlltask } from "./reload.js";
 import {
   createTodoTask,
@@ -60,7 +60,7 @@ export let progressListData = [];
  export let completedListData = [];
  export let delayListData = [];
  export let signListData = [];
-//create a new task when i click the add Task button
+
 window.addEventListener("DOMContentLoaded", () => {
   reloadAlltask(todoListData,
   progressListData,

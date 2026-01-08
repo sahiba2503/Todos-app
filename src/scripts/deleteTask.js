@@ -1,5 +1,35 @@
 
+//
+// export function attachTodoDelete(
+//   todoListItem,
+//   index,
+//   todoListData,
+//   createTodoList,
+//   taskInput,
+//   dueDate
+// ) {
+//   todoListItem
+//     .querySelector(".todoDeleteButton")
+//     .addEventListener("click", function () {
 
+//       var taskId = todoListData[index].id;
+
+//       fetch(TODO_API + "/" + taskId, {
+//         method: "DELETE"
+//       })
+//         .then(function () {
+//           createTodoList();      // or re-fetch from API
+//           taskInput.value = "";
+//           dueDate.value = "";
+//         })
+//         .catch(function (error) {
+//           console.log("Error deleting task", error);
+//         });
+
+//     });
+// }
+
+//
 export function attachTodoDelete(todoListItem, index, todoListData,createTodoList,taskInput,dueDate) {
   todoListItem .querySelector(".todoDeleteButton")
     .addEventListener("click", function () {

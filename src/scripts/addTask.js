@@ -18,7 +18,6 @@ export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delay
     day: "numeric",
   });
 
-  // 3. CREATE NEW TODO TASK
   if ( updateTodoTaskIndex === -1 &&  updateprogressTaskIndex === -1 && updateDoneTaskIndex === -1 && updateBacklogTaskIndex === -1  ) 
     {
 
@@ -53,6 +52,9 @@ export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delay
     addBtn.innerText="Add Task";
     clearSearchInput();
   }
+//
+
+
 
   // 5. UPDATE PROGRESS TASK
   else if (updateprogressTaskIndex !== -1) {

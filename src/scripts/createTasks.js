@@ -3,9 +3,9 @@
 return `<li class="todoListItem">
         <div class="todoListDetail">
         <div class="todoTask">${todoListData.title}</div>
-        <div class="todoCreateDate">Created: ${todoListData.create}</div>
-         <div class="todoUpdateDate">Update: ${todoListData.update}</div>
-        <div class="todoDueDate">Due: ${todoListData.due}</div>
+        <div class="todoCreateDate">Create Date: ${todoListData.create}</div>
+         <div class="todoUpdateDate">Update Date: ${todoListData.update}</div>
+        <div class="todoDueDate">Due Date: ${todoListData.due}</div>
         </div>
         <div class="todoiconContainer">
           <div class="todoEditButton"><img src="./public/images/update.svg" alt="update"></div>
@@ -20,9 +20,9 @@ return `<li class="todoListItem">
   return `<li class="completedListItem">
         <div class="completedListDetail">
         <div class="completedTask">${completedListData.title}</div>
-        <div class="completedCreateDate">Created: ${completedListData.create}</div>
-           <div class="completedUpdateDate">Update: ${completedListData.update}</div>
-             <div class="completedDueDate">Completed: ${completedListData.completed}</div>
+        <div class="completedCreateDate">Create Date: ${completedListData.create}</div>
+           <div class="completedUpdateDate">Update Date: ${completedListData.update}</div>
+             <div class="completedDueDate">Complete Date: ${completedListData.completed}</div>
         </div>
         <div class="completedIconContainer">
          <div class="completedEditButton"> <img src="./public/images/update.svg" alt="update"></div>
@@ -37,9 +37,9 @@ return `<li class="todoListItem">
   return `<li class="delayListItem">
         <div class="backlogListDetail">
         <div class="backlogTask">${createBacklogTask.title}</div>
-         <div class="backlogCreateDate">Created:${createBacklogTask.create}</div>
-          <div class="backlogupdateDate">update: ${createBacklogTask.update}</div>
-          <div class="backlogdueDate">Due: ${createBacklogTask.due}</div>
+         <div class="backlogCreateDate">Create Date:${createBacklogTask.create}</div>
+          <div class="backlogupdateDate">update Date: ${createBacklogTask.update}</div>
+          <div class="backlogdueDate">Due Date: ${createBacklogTask.due}</div>
            </div>  
         <div class="backlogIconContainer"> 
           <div class="backlogEditButton"> <img src="./public/images/update.svg" alt="update"></div> 
@@ -54,9 +54,9 @@ export function createProgressTask (progressListData){
   return `<li class="progressListItem">
          <div class="progressListDetail">
          <div class="progressTask">${progressListData.title}</div>
-         <div class="progressCreateDate">Created: ${progressListData.create}</div>
-          <div class="progressUpdateDate">Update: ${progressListData.update}</div>
-         <div class="progressDueDate">Due: ${progressListData.due}</div>
+         <div class="progressCreateDate">Create Date: ${progressListData.create}</div>
+          <div class="progressUpdateDate">Update Date: ${progressListData.update}</div>
+         <div class="progressDueDate">Due Date: ${progressListData.due}</div>
          </div>
          <div class="progressIconContainer">
           <div class="progressEditButton"><img src="./public/images/update.svg" alt="update"></div>
@@ -71,8 +71,8 @@ export function createProgressTask (progressListData){
   return `<li class="signListItem">
          <div class="signListDetail">
          <div class="signTask">${signListData.title}</div>
-          <div class="signExpiryDate">Create: ${signListData.create}</div>
-          <div class="signCompletedDate">Expiry: ${signListData.due}</div>
+          <div class="signExpiryDate">Create Date: ${signListData.create}</div>
+          <div class="signCompletedDate">Expiry Date: ${signListData.due}</div>
           </div>
          <div class="signIconContainer">
           <div class="signMoveInCompleted"><img src="./public/images/moveBack.svg" alt="update"></div>

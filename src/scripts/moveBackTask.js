@@ -21,6 +21,7 @@ export function attachTodoBacklog(todoListItem, index, todoListData, delayListDa
       createTodoList();
     });
 }
+
 export function attachProgressToTodo( progressListItem,index,progressListData, todoListData, createProgressList, createTodoList) 
 {
   progressListItem

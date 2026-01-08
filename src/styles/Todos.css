@@ -317,10 +317,9 @@ li {
 .progressListDetail .progressCreateDate,
 .completedListDetail .completedCreateDate,
 .signListDetail .signExpiryDate,
-.backlogListDetail,
-.backlogCreateDate {
+.delayListItem .backlogCreateDate {
     color: #6c7786;
-    font-size: 1rem;
+    font-size: 0.7rem;
     padding-bottom: 0.5rem;
      background: #F8F9FA;
 
@@ -330,7 +329,7 @@ li {
 .completedListDetail .completedUpdateDate,
 .backlogListDetail .backlogupdateDate {
     color: #6c7786;
-    font-size: 1rem;
+    font-size: 0.7rem;
     padding-bottom: 0.5rem;
     background: #F8F9FA;
 
@@ -338,11 +337,10 @@ li {
 .todoListDetail .todoDueDate,
 .progressListDetail .progressDueDate,
 .completedListDetail .completedDueDate,
-.backlogListDetail,
-.backlogdueDate,
+.delayListItem .backlogdueDate,
 .signListDetail .signCompletedDate {
     color: #8897a9;
-    font-size: 1rem;
+    font-size: 0.7rem;
     padding-bottom: 0.5rem;
     background: #F8F9FA;
 
