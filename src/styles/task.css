@@ -52,3 +52,22 @@ ol li{
   margin-right: 15px;
   color:rgb(46, 185, 139);
 }
+ /* fetch(url,{
+    method:"GET"   
+   })
+   .then(res=>res.json())
+   .then((data)=>{
+    for(let item of data){
+      if(item.id < 20){
+      console.log("task title is : " + item.title)
+        list.insertAdjacentHTML("beforeend",`
+    <div class="taskDetail">
+    <li>${item.title} <li>
+      <span class="upd">update</span>
+      <span class="del">delete</span>
+</div>  `)
+    }
+  }
+   
+  })
+   .catch("error"); */
