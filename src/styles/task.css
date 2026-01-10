@@ -14,24 +14,28 @@
     align-items: center;
     justify-content: space-between;
     width: 50%;
-    height: 5rem;
+    height: 13rem;
     margin-top: 3rem;
      }
   input{
     width: 96%;
-    height: 50%;
+    height: 30%;
     padding: 0 2%;
   }
   button{
+    border-radius: 0.5rem;
     width: 80%;
     height: 30%;
     background-color: red;
     color:white;
+     margin-top: 11px;
   }
 .taskContainer{
   border: 2px solid green;
   width: 80%;
-  margin-top: 3rem;
+  margin-top: 1rem;
+  height: 400px;
+  overflow: scroll;
 }
 ol{
   list-style: none;
@@ -43,4 +47,8 @@ ol li{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.upd{
+  margin-right: 15px;
+  color:rgb(46, 185, 139);
 }
