@@ -1,12 +1,19 @@
 
-export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delayListData,updateTodoTaskIndex,progressListData,updateprogressTaskIndex,updateDoneTaskIndex ,updateBacklogTaskIndex,todoListData,completedListData,createTodoList,createProgressList,createCompletedList,createDelayList,resetUpdateIndexes,handleClearTask, addBtn,clearSearchInput)
+export function addButtonTask(inputboxText,taskInput,dueDate,selectDate ,delayListData,updateTodoTaskIndex,progressListData,updateprogressTaskIndex,updateDoneTaskIndex ,updateBacklogTaskIndex,todoListData,completedListData,createTodoList,createProgressList,createCompletedList,createDelayList,resetUpdateIndexes,handleClearTask, addBtn,clearSearchInput)
  
 {
   // 1. Get input values
   var inputboxText = taskInput.value.trim();
-  var dueDatevalue = dueDate.value;
+   selectDate = dueDate.value;
+     let dateObj = new Date(selectDate);
+    
+let dueDateValue = dateObj.toLocaleDateString("en-IN", {
+  day: "numeric",
+  month: "long",
+  year: "numeric"
+});
 
-  if (inputboxText === "" || dueDatevalue === "") {
+  if (inputboxText === "" || selectDate === "") {
     return;
   }
 
@@ -25,7 +32,7 @@ export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delay
       title: inputboxText,
       create: createDate,
       update: "",
-      due: dueDatevalue,
+      due: dueDateValue,
     });
 
     localStorage.setItem("TODO", JSON.stringify(todoListData));
@@ -42,7 +49,7 @@ export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delay
     day: "numeric",
   });
     todoListData[updateTodoTaskIndex].title = inputboxText;
-    todoListData[updateTodoTaskIndex].due = dueDatevalue;
+    todoListData[updateTodoTaskIndex].due = dueDateValue;
     todoListData[updateTodoTaskIndex].update = updateDate;
 
     localStorage.setItem("TODO", JSON.stringify(todoListData));
@@ -65,7 +72,7 @@ export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delay
     day: "numeric",
   });
     progressListData[updateprogressTaskIndex].title = inputboxText;
-    progressListData[updateprogressTaskIndex].due = dueDatevalue;
+    progressListData[updateprogressTaskIndex].due = dueDateValue;
     progressListData[updateprogressTaskIndex].update = updateDate;
 
     localStorage.setItem("PROGRESS", JSON.stringify(progressListData));
@@ -86,7 +93,7 @@ export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delay
     day: "numeric",
   });
     completedListData[updateDoneTaskIndex].title = inputboxText;
-    completedListData[updateDoneTaskIndex].due = dueDatevalue;
+    completedListData[updateDoneTaskIndex].due = dueDateValue;
     completedListData[updateDoneTaskIndex].update = updateDate;
 
     localStorage.setItem("COMPLETED", JSON.stringify(completedListData));
@@ -106,7 +113,7 @@ export function addButtonTask(inputboxText,taskInput,dueDate,dueDatevalue ,delay
     day: "numeric",
   });
     delayListData[updateBacklogTaskIndex].title = inputboxText;
-    delayListData[updateBacklogTaskIndex].due = dueDatevalue;
+    delayListData[updateBacklogTaskIndex].due = dueDateValue;
     delayListData[updateBacklogTaskIndex].update = updateDate;
 
     localStorage.setItem("BACKLOG", JSON.stringify(delayListData));
