@@ -77,7 +77,15 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 addBtn.addEventListener("click", () => {
   var inputboxText = taskInput.value.trim();
-  var dueDatevalue = dueDate.value;
+  var selectdueDate = dueDate.value;
+  let dateObj = new Date(selectdueDate);
+
+  let dueDatevalue = dateObj.toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+
   addButtonTask(
     inputboxText,
     taskInput,
