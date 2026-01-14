@@ -1,0 +1,251 @@
+@media screen and (max-width : 770px) {
+   body{
+    width: 100%;
+    height: 1000px;
+   }
+     ol li:hover  ol li i{
+        display: flex;
+    }
+    ol {
+        padding: 0 1.4rem;
+    }
+    #headingTaskContainer {
+        /* border: 2px solid red; */
+        height: 35%;
+    }
+    #InputTaskContainer{
+        height: 50%;
+      width: 85%;
+    }
+    h1{
+        height: 13%;
+    }
+     #InputTaskContainer input, button{
+        height: 30%;
+        border-radius: 0.5rem;
+        padding: 0 1rem;
+     }
+        #tasksectionContainer {
+        width: 100%;
+        margin: 0;
+        height: 620px;
+          }
+    .taskContainer {
+        /* border: 2px solid green; */
+        width: 500%;
+            padding-top: 60px;
+        
+          }
+    #containerDelayList,
+    #containerTodoList,
+    #containerProgressList,
+    #containerCompletedList,
+    #signTodoList {
+        width: 20%;
+    }
+    #searchContainer input {        
+        width: 60%;
+       
+    }
+    #searchClearIcons {
+        width: 25%;
+    }
+    #searchContainer #searchIcon {
+        width: 9%;
+         margin-left: 5px;
+    }
+    .containertwoicons {
+        position: none;
+        margin: 0;
+        padding: 0;
+        
+    }
+    #sliderRightBtn {
+         border-radius: 9px;
+        padding: 5px 0;
+        width: 9%;
+        height: 50px;
+        font-size: 1rem;
+        top: 0;
+        right: 40%;
+    }
+    #sliderLeftBtn {
+        border-radius: 9px;
+         padding: 5px 0;
+         width: 9%;
+         height: 50px;
+         font-size: 1rem;
+      top: 0;
+        left: 40%;
+    }
+   #searchContainer{
+    border-radius: 1rem;
+   width: 85%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+      }
+   
+    #searchInput::placeholder{
+       font-size: 1rem;
+                }
+     #searchIcon i{
+       font-size: 11px;
+         }
+    #searchClearIcons{
+         width: 20%;
+    }
+        #InputTaskContainer input::placeholder{
+        font-size: 1rem;
+    }
+    #searchContainer:hover #searchClearIcons img {
+    display: flex;
+    font-size: 15px;
+}
+   }
+   /* 480 */
+@media screen and (max-width : 480px) {
+    body {
+         padding: 0;
+        margin: 0;
+        height: 1020px;
+        padding-bottom: 20px;
+         background: #FFFF;
+            }
+     ol li:hover  ol li i{
+        display: flex;
+    }
+    ol{
+        padding-top: 1rem;
+    }
+    #headingTaskContainer {
+         width: 100%;
+         height: 40%;
+        padding: 0;
+        gap:15px;
+        justify-content: space-between;
+        
+    }
+    #smallScreenHeader {
+       /* border: 2px solid green; */
+        width: 100%;
+        height: 120px;
+        background-color: #5D3FD3;
+        display: flex;
+        flex-direction: column;
+       align-items: center;
+       justify-content: space-between;
+       gap: 24px;
+    }
+    #InputTaskContainer {
+        /* border: 2px solid blue; */
+         padding: 1rem;
+        width: 90%;
+        height: 197px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 6;
+    }
+    #InputTaskContainer input {
+        margin-bottom: 20;
+        background-color: #FFFF;
+        border-radius: 0.5rem;
+        padding: 0;
+        padding:  0 0.5rem;
+       
+    }
+    #InputTaskContainer button{
+          border-radius: 0.5rem;
+    }
+    #InputTaskContainer input::placeholder{
+        font-size: 1rem;
+    }
+    #searchContainer {
+        width: 90%;
+        height: 50px;
+        padding: 14px 16px;
+           }
+     #searchContainer {
+        padding: 10px 0;
+     }
+     .taskContainer{
+        margin-top:0 ;
+     }
+    #sliderRightBtn,
+    #sliderLeftBtn {
+        display: none;
+    }
+    h1{
+        /* border: 2px solid black; */
+        height: 55px;
+        font-size: 2rem;
+        text-align: center;
+    }
+    #allTaskBtn {  
+        /* border: 2px solid yellow; */
+        width: 100%;  
+        height: 55px;    
+        display: flex;
+        margin-bottom: 1rem;
+        
+    }
+    #tasksectionContainer {
+        margin: 0;
+    }
+    #containerDelayList,
+    #containerTodoList,
+    #containerProgressList,
+    #containerCompletedList,
+    #signTodoList {
+        margin: 0 0.5rem;
+        width: 20%;
+       background-color: #FFFF;
+    }
+    #sliderRightBtn,
+    #sliderLeftBtn {
+        display: none;
+    }
+    .containertwoicons {
+        margin-top: 0;
+    }
+  
+    .taskContainer {
+        width: 500%;
+        padding-top: 20px;
+    }
+    main{
+          width: 100%;
+        margin-top:0;
+        padding: 0;
+        /* height: 850px; */
+        /* background-color: white; */
+            }
+   .todoiconContainer .todoEditButton,
+.completedIconContainer .completedEditButton {
+    margin-right: 0rem;
+    color: #5D3FD3;
+}
+.todoiconContainer .todoBacklog,
+.progressIconContainer .progressBacklog,
+.completedIconContainer .comeMoveInProg {
+     margin-right: 0rem;
+    color: #5D3FD3;
+}
+#allTaskBtn #backBtn:hover,
+#allTaskBtn #todoBtn:hover,
+#allTaskBtn #donBtn:hover,
+#allTaskBtn #expiryBtn:hover{
+background-color: #FFFF;
+color:#5D3FD3;
+}
+#allTaskBtn #proBtn:hover{
+    background-color: #FFFF;
+color:#5D3FD3;
+}
+
+    
+}

@@ -8,9 +8,10 @@ export function addButtonTask(inputboxText,taskInput,dueDate,selectDate ,delayLi
      let dateObj = new Date(selectDate);
     
 let dueDateValue = dateObj.toLocaleDateString("en-IN", {
-  day: "numeric",
-  month: "long",
-  year: "numeric"
+  weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
 });
 
   if (inputboxText === "" || selectDate === "") {
