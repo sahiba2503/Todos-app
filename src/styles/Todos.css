@@ -4,9 +4,7 @@
     margin: 0;
     padding: 0;
 }
-
 body {
-    /* border: 2px solid black; */
     background-color: #667EEA ;
     width: 100vw;
     height: 100vh;
@@ -14,7 +12,6 @@ body {
 html{
     font-size: 1rem;
 }
-
 #headingTaskContainer {
     width: 100%;
     display: flex;
@@ -23,7 +20,6 @@ html{
     justify-content: center;
     align-items: center;
    }
-
 #allTaskBtn {
     width: 100%;
     display: flex;
@@ -31,8 +27,6 @@ html{
    align-items: center;
    justify-content: space-between;
   }
-
-
 #proBtn{
     font-size: 0.5rem;
 }
@@ -65,7 +59,6 @@ body i:hover {
     flex-direction: column;
     justify-content: center;
 }
-
 #InputTaskContainer input,
 button {
     border: 2px solid rgb(210, 209, 209);
@@ -77,9 +70,7 @@ button {
     border: 2px solid #E9ECEF;
     margin-bottom: 1rem;
     font-size: 1.5rem;
- background-color: #F8F9FA;
-
-       
+ background-color: #F8F9FA;       
 }
 #dueDate{
     color:#FFFF;
@@ -128,8 +119,7 @@ input::placeholder{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #FFFF;
-   
+    background-color: #FFFF;   
 }
 #searchContainer #searchIcon img{
     color: black;
@@ -176,7 +166,6 @@ input::placeholder{
     padding: 0 4rem;
     position: relative;
 }
-
 ol {
     width: 100%;
     background-color: #FFFF;
@@ -200,8 +189,6 @@ li {
     word-break: break-all;
     }
     ol li{
-    background-color: #F8F9FA;
-   
+    background-color: #F8F9FA;   
 }
 
-/* ///// */

@@ -86,7 +86,6 @@ ol::-webkit-scrollbar-thumb{
   #bTaskHeading,
   #eTaskHeading,
    #dTaskHeading
-
    {
       display: flex;
     flex-direction: row;
@@ -116,7 +115,6 @@ ol::-webkit-scrollbar-thumb{
     font-size: 2rem;
     padding-bottom: 1rem;
     background: #F8F9FA;
-
 }
 .todoListDetail .todoCreateDate,
 .progressListDetail .progressCreateDate,
@@ -127,7 +125,6 @@ ol::-webkit-scrollbar-thumb{
     font-size: 0.7rem;
     padding-bottom: 0.5rem;
      background: #F8F9FA;
-
 }
 .todoListDetail .todoUpdateDate,
 .progressListDetail .progressUpdateDate,
@@ -137,18 +134,17 @@ ol::-webkit-scrollbar-thumb{
     font-size: 0.7rem;
     padding-bottom: 0.5rem;
     background: #F8F9FA;
-
 }
 .todoListDetail .todoDueDate,
 .progressListDetail .progressDueDate,
 .completedListDetail .completedDueDate,
 .delayListItem .backlogdueDate,
-.signListDetail .signCompletedDate {
+.signListDetail .signCompletedDate 
+{
     color: #8897a9;
     font-size: 0.7rem;
     padding-bottom: 0.5rem;
     background: #F8F9FA;
-
 }
 .todoiconContainer,
 .progressIconContainer,
@@ -159,9 +155,7 @@ ol::-webkit-scrollbar-thumb{
     display: flex;
     justify-content: right;
     background-color: #F8F9FA;  
-
 }
-
 .todoiconContainer .todoMoveButton,
 .progressIconContainer .progressMoveButton,
 .completedIconContainer .completedMoveButton,
@@ -207,7 +201,6 @@ li i:hover {
 #searchContainer:hover #searchClearIcons i {
     display: flex;
 }
-
 .todoListItem:hover .todoiconContainer img,
 .progressListItem:hover .progressIconContainer img,
 .completedListItem:hover .completedIconContainer img,
@@ -215,9 +208,6 @@ li i:hover {
 .delayListItem:hover .backlogIconContainer img {
     display: flex;
 }
-
-
-
  #clearAlltask{
     width: 40%;
     align-items: center;
